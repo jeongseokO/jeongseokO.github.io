@@ -3,9 +3,9 @@ title:  "**Hello!**"
 excerpt: "첫번째 포스팅"
 
 categories:
- - lang
+ - Etc
 tags:
- - [python, data science, data mining]
+ - [test]
 
 toc: true
 toc_sticky: true
