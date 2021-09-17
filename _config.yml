@@ -103,7 +103,7 @@ analytics:
 author:
   name             : "Jeongseok Oh"
   avatar           : "/assets/avatar.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am student studying Data Science in Hanyang Univ."
+  bio              : "I am a student studying Data Science in Hanyang Univ."
   location         : "Seoul, Republic of Korea"
   email            :
   links:
