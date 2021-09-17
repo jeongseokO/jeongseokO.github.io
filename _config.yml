@@ -107,9 +107,9 @@ author:
   location         : "Seoul, Republic of Korea"
   email            : "luke0112@hanyang.ac.kr"
   links:
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
-      url: "mailto:luke0112@hanyang.ac.kr"
+    #- label: "Email"
+    #  icon: "fas fa-fw fa-envelope-square"
+    #  url: "mailto:luke0112@hanyang.ac.kr"
     #- label: "Website"
     #  icon: "fas fa-fw fa-link"
       # url: "https://your-website.com"
