@@ -17,8 +17,8 @@ minimal_mistakes_skin    : "dark" # "default", "air", "aqua", "contrast", "dark"
 # Site Settings
 locale                   : "kr-KOR"
 title                    : "Jeongseok's Blog"
-title_separator          : "-"
-subtitle                 : # site tagline that appears below site title in masthead
+title_separator          : "|"
+subtitle                 : "for Summary"
 name                     : "Jeongseok Oh"
 description              : "Blog for studying Data Science"
 url                      : "jeongseoko.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
@@ -30,15 +30,15 @@ masthead_title           : # overrides the website title displayed in the masthe
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
 comments:
-  provider               : # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "giscus", "custom"
+  provider               : "disqus" # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "giscus", "custom"
   disqus:
-    shortname            : # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
+    shortname            : "gitblog-9" # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
   discourse:
     server               : # https://meta.discourse.org/t/embedding-discourse-comments-via-javascript/31963 , e.g.: meta.discourse.org
   facebook:
     # https://developers.facebook.com/docs/plugins/comments
     appid                :
-    num_posts            : # 5 (default)
+    num_posts            : 5 # 5 (default)
     colorscheme          : # "light" (default), "dark"
   utterances:
     theme                : #"github-dark" # "github-light" (default), "github-dark"
