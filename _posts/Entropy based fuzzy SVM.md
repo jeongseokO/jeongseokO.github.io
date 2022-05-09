@@ -1,4 +1,0 @@
-# Entropy based fuzzy SVM
-
-
-
