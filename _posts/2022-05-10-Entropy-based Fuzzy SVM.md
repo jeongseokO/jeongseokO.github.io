@@ -1,4 +1,21 @@
-# Entropy-based Fuzzy SVM 구현하기
+---
+title:  "**Entropy-based Fuzzy SVM 구현하기**"
+excerpt: "EFSVM 구현"
+
+categories:
+ - reproduce
+ - -theory
+tags:
+ - [SVM]
+
+toc: true
+toc_sticky: true
+
+date: 2022-05-10
+last_modified_at: 2022-05-10
+
+published: true
+---
 
 ## 개요
 - EFSVM은 imbalanced dataset을 분류할 때 유용하게 사용할 수 있는 머신러닝 기법이다. 
