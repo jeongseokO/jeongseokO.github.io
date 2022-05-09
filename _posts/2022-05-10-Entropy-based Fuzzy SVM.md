@@ -4,7 +4,7 @@ excerpt: "EFSVM 구현"
 
 categories:
  - reproduce
- - -theory
+ - theory
 tags:
  - [SVM]
 
@@ -26,7 +26,7 @@ published: true
 
 - SVM의 decision surface를 결정하는데 negative class의 영향력을 축소시키는 것을 목적으로 설계된 모형이다.
 - 각 데이터의 중요도를 Entropy를 사용해서 나타낸다. 
-![image-20220510001312617](https://raw.githubusercontent.com/jeongseokO/jeongseokO.github.io/assets/images/image-20220510001312617.png)
+![image-20220510001312617](/assets/images/image-20220510001312617.png)
 
 
 
