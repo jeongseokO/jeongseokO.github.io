@@ -1,3 +1,23 @@
+---
+title:  "**EfficientNet 구현하기**"
+excerpt: "EfficientNet 구현"
+
+categories:
+ - reproduce
+ - SOTA
+tags:
+ - [CNN]
+ - [Deep Learning]
+
+toc: true
+toc_sticky: true
+
+date: 2022-05-12
+last_modified_at: 2022-05-12
+
+published: true
+---
+
 ## 개요
 
 - EfficientNet은 SOTA 중에서 획기적인 방법으로 파라미터 수를 줄이고 정확도를 높인 방법이다.
@@ -7,7 +27,7 @@
 
 - CNN의 정확도를 높일 때 우린 주로 3가지 요소를 주목한다. 모델의 깊이, 너비, 그리고 입력 데이터의 해상도이다. 
 - 다음 그림은 순서대로 모델의 깊이, 너비, 입력 데이터의 해상도에 따른 모델의 정확도 변화를 보여준다. 
-![image-20220512180708250](https://raw.githubusercontent.com/jeongseokO/jeongseokO.github.io/assets/images/image-20220512180708250.png)
+![image-20220512180708250](/assets/images/image-20220512180708250.png)
 
 - 최적의 깊이, 너비, 해상도를 찾기 힘든 가장 큰 원인은, 각 파라미터들이 서로 영향을 주는 관계에 놓여 있다는 것이다. 이러한 제약 때문에 대부분의 Conventional methods는 이 파라미터들 중 하나만을 골라 진행되었다. 
 
@@ -21,7 +41,7 @@
 
 ## EfficientNet의 원리
 
-![image-20220512181709344](https://raw.githubusercontent.com/jeongseokO/jeongseokO.github.io/assets/images/image-20220512181709344.png)
+![image-20220512181709344](/assets/images/image-20220512181709344.png)
 - EfficientNet 개발진들은 모델의 깊이, 너비, 해상도 사이에 수식적인 관계가 존재할 것이라고 판단하였고 위와 같은 식을 정립하였다. 
 - N은 전체 네트워크를 의미하고, 네트워크는 F layer들의 곱으로 표현 가능하다.
 - 각 F layer 내부에는 입력 데이터 X의 텐서가 존재하고, 이 텐서는 깊이, 너비, 해상도에 따라 변화한다. 
@@ -30,7 +50,7 @@
 
 - Compound Scaling Method
 - CSM은 compound 계수 Φ를 통해서 네트워크의 깊이, 너비, 해상도를 한 번에 스케일링 할 수 있다. 
-![image-20220513021526410](https://raw.githubusercontent.com/jeongseokO/jeongseokO.github.io/assets/images/image-20220513021526410.png)
+![image-20220513021526410](/assets/images/image-20220513021526410.png)
 
 - 여기서 α, β, Г는 Grid search를 통해서 정할 수 있는 상수이다. Φ는 하이퍼파라미터로, 얼마나 많은 resource를 모델 스케일링에 할당할 수 있는지를 조절하는 파라미터이다.
 - FLOPS는 αβ²Г²의 Φ승 만큼 증가하므로 αβ²Г²=2로 설정하여 FLOPS가 2배 이상으로 증가하지 않도록 억제하였다. 
@@ -598,7 +618,7 @@ pd.DataFrame(Eff_history.history).plot()
 
 
 
-![image-20220513174643547](https://raw.githubusercontent.com/jeongseokO/jeongseokO.github.io/assets/images/image-20220513174643547.png)
+![image-20220513174643547](/assets/images/image-20220513174643547.png)
     
 
 
@@ -797,7 +817,7 @@ plot_history(Eff_history2)
 
 
 ​    
-![image-20220513174739066](https://raw.githubusercontent.com/jeongseokO/jeongseokO.github.io/assets/images/image-20220513174739066.png)
+![image-20220513174739066](/assets/images/image-20220513174739066.png)
 ​    
 
 
