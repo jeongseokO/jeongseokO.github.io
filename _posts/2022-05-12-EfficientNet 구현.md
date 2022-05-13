@@ -4,10 +4,11 @@ excerpt: "EfficientNet 구현"
 
 categories:
  - reproduce
- - SOTA
 tags:
  - [CNN]
  - [Deep Learning]
+ - [Transfer Learning]
+ - [SOTA]
 
 toc: true
 toc_sticky: true
