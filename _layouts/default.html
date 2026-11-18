@@ -1,0 +1,26 @@
+{%- assign t = site.data.i18n[page.lang] -%}
+{%- assign other_lang = "ko" -%}
+{%- if page.lang == "ko" -%}{%- assign other_lang = "en" -%}{%- endif -%}
+{%- assign home_url = "/" -%}
+{%- if page.lang == "ko" -%}{%- assign home_url = "/ko/" -%}{%- endif -%}
+{%- if page.ref -%}
+  {%- assign pair = site.pages | where: "ref", page.ref -%}
+  {%- assign counterpart = pair | where: "lang", other_lang | first -%}
+  {%- assign en_page = pair | where: "lang", "en" | first -%}
+  {%- assign ko_page = pair | where: "lang", "ko" | first -%}
+{%- endif -%}
+<!doctype html>
+<html lang="{{ page.lang | default: site.lang }}">
+<head>
+{% include head.html %}
+</head>
+<body class="page-{{ page.ref | default: 'other' }}">
+  <a class="skip-link" href="#main">{{ t.skip }}</a>
+{% include header.html %}
+  <main id="main">
+{{ content }}
+  </main>
+{% include footer.html %}
+  <script src="{{ '/assets/js/site.js' | relative_url }}" defer></script>
+</body>
+</html>

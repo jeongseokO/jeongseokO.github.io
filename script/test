@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Build the site exactly as GitHub Pages would, then check the output.
+set -euo pipefail
+cd "$(dirname "$0")/.."
+export LC_ALL=C.UTF-8 LANG=C.UTF-8
+
+log=$(mktemp)
+bundle exec jekyll build 2>&1 | tee "$log"
+if grep -Eiq '(warning|error)' "$log"; then
+  echo "Build printed warnings or errors (see above)." >&2
+  exit 1
+fi
+
+bundle exec ruby test/site_test.rb
+bundle exec htmlproofer _site --disable-external --no-enforce-https

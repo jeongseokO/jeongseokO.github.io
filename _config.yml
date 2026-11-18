@@ -1,0 +1,30 @@
+title: Jungsuk Oh
+description: Ph.D. student at the Graduate School of Data Science, Seoul National University, working on efficient and trustworthy large language models.
+author: Jungsuk Oh
+url: https://jeongseoko.github.io
+baseurl: ""
+lang: en
+locale: en_US
+
+# No theme: every layout and style lives in this repository.
+theme: null
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter_opts:
+    disable: true
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .bundle
+  - .superpowers
+  - test
+  - script
+  - README.md

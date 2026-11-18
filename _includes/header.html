@@ -1,0 +1,16 @@
+  {%- if page.ref == "home" -%}{%- assign nav_base = "" -%}{%- else -%}{%- assign nav_base = home_url -%}{%- endif %}
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="{{ home_url | relative_url }}">{{ site.data.profile.name[page.lang] | default: site.title }}</a>
+      <nav class="site-nav" aria-label="{{ t.nav_label }}">
+        <a href="{{ nav_base }}#about">{{ t.nav_about }}</a>
+        <a href="{{ nav_base }}#research">{{ t.nav_research }}</a>
+        <a href="{{ nav_base }}#publications">{{ t.nav_publications }}</a>
+      </nav>
+      <div class="site-tools">
+        {%- if counterpart %}
+        <a class="lang-switch" href="{{ counterpart.url | relative_url }}" hreflang="{{ other_lang }}" lang="{{ other_lang }}" title="{{ t.switch_title }}">{{ t.switch_label }}</a>
+        {%- endif %}
+      </div>
+    </div>
+  </header>

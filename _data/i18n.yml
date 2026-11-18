@@ -1,0 +1,20 @@
+en:
+  nav_label: Main
+  nav_about: About
+  nav_research: Research
+  nav_publications: Publications
+  switch_label: 한국어
+  switch_title: 한국어로 보기
+  theme_toggle: Switch between light and dark theme
+  skip: Skip to content
+  updated: Last updated
+ko:
+  nav_label: 주요 메뉴
+  nav_about: 소개
+  nav_research: 연구
+  nav_publications: 논문
+  switch_label: English
+  switch_title: View in English
+  theme_toggle: 밝은 테마와 어두운 테마 전환
+  skip: 본문으로 건너뛰기
+  updated: 최종 수정
