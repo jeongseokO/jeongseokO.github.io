@@ -13,7 +13,7 @@ layout: default
     <div class="hero__text">
       <h1 id="name" class="hero__name">{{ p.name[page.lang] }}</h1>
       <p class="hero__alt-name" lang="{{ other_lang }}">{{ p.name[other_lang] }}</p>
-      <p class="hero__role">{{ p.position[page.lang] }} · {{ p.affiliation[page.lang] }}</p>
+      <p class="hero__role">{% if page.lang == "ko" %}{{ p.affiliation.ko }} {{ p.position.ko }}{% else %}{{ p.position[page.lang] }} · {{ p.affiliation[page.lang] }}{% endif %}</p>
       <p class="hero__advisor">{{ t.advised_by }} <a href="{{ p.advisor.url }}">{{ p.advisor.name[page.lang] }}</a> · <a href="{{ p.lab.url }}">{{ p.lab.name }}</a></p>
       <ul class="hero__links">
         <li><a href="mailto:{{ p.email }}">{{ t.email }}</a></li>

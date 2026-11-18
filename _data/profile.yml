@@ -14,7 +14,7 @@ affiliation:
 advisor:
   name:
     en: Prof. Jay-Yoon Lee
-    ko: 이재윤 교수
+    ko: 이재윤
   url: https://leejayyoon.github.io/
 lab:
   name: SKI-ML Lab
@@ -54,7 +54,7 @@ education:
       ko: 산업공학 학사
     school:
       en: Hanyang University
-      ko: 한양대학교 산업공학과
+      ko: 한양대학교
     status:
       en: Graduated
       ko: 졸업
@@ -69,7 +69,7 @@ interests:
       ko: 어텐션과 모델 구조를 바꿔 LLM 추론에 드는 연산량과 메모리를 줄이는 연구입니다.
     topics:
       en: [Linear attention, Architecture pruning]
-      ko: [Linear attention, Architecture pruning]
+      ko: [선형 어텐션 (Linear attention), 구조 프루닝 (Architecture pruning)]
   - id: trustworthy-ai
     title:
       en: Trustworthy AI
@@ -79,7 +79,7 @@ interests:
       ko: 모델 출력이 샘플마다 일관되고 사실에 근거하도록 만드는 연구입니다.
     topics:
       en: [Consistency, Mitigating hallucination]
-      ko: [일관성 (Consistency), 환각 완화 (Hallucination)]
+      ko: [일관성 (Consistency), 환각 완화 (Mitigating hallucination)]
   - id: prompt-engineering
     title:
       en: Prompt Engineering

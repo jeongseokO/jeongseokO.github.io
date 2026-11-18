@@ -1,3 +1,9 @@
   <footer class="site-footer">
+    <ul class="footer-links">
+      <li><a href="mailto:{{ site.data.profile.email }}">{{ site.data.profile.email }}</a></li>
+      {%- for l in site.data.profile.links %}
+      <li><a href="{{ l.url }}">{{ l.label }}</a></li>
+      {%- endfor %}
+    </ul>
     <p>&copy; {{ site.time | date: "%Y" }} {{ site.data.profile.name[page.lang] | default: site.title }} · {{ t.updated }} {{ site.time | date: "%Y-%m-%d" }}</p>
   </footer>

@@ -2,7 +2,7 @@
 layout: default
 ---
 {%- include vars.html -%}
-{%- assign pub = site.data.publications | where: "id", page.pub | first -%}
+{%- if page.pub -%}{%- assign pub = site.data.publications | where: "id", page.pub | first -%}{%- endif -%}
 <article class="research">
   <header class="research__head">
     <p class="eyebrow"><a href="{{ home_url | relative_url }}#research">{{ t.research }}</a> · {{ pub.venue }}</p>

@@ -176,3 +176,64 @@ class LabelTest < Minitest::Test
     end
   end
 end
+
+# Final-review fixes.
+require "tmpdir"
+require "fileutils"
+
+class ReviewFixTest < Minitest::Test
+  # A future paper without project_ref must not link to some arbitrary page.
+  def test_paper_without_project_page_gets_no_project_link
+    Dir.mktmpdir do |dir|
+      src = File.expand_path("..", __dir__)
+      %w[_config.yml _data _includes _layouts assets index.md ko research 404.html].each do |f|
+        FileUtils.cp_r(File.join(src, f), dir)
+      end
+      File.open(File.join(dir, "_data/publications.yml"), "a") do |f|
+        f.write("\n- id: future\n  title: A Future Paper\n  authors:\n    - name: Jungsuk Oh\n      me: true\n  venue: Workshop 2027\n  year: 2027\n")
+      end
+      out = File.join(dir, "_site")
+      system("bundle", "exec", "jekyll", "build", "-q", "-s", dir, "-d", out, exception: true)
+      HOMES.each_key do |path|
+        future = Nokogiri::HTML(File.read(File.join(out, path))).at("#pub-future")
+        refute_nil future, path
+        assert_nil future.at(".pub-title a"), "#{path}: title must not link anywhere"
+        assert_empty future.css(".chip--accent"), "#{path}: no project-page chip"
+      end
+    end
+  end
+
+  def test_footer_has_contact_on_every_page
+    PAGES.each_key do |path|
+      hrefs = page(path).css(".site-footer a").map { |a| a["href"] }
+      assert_includes hrefs, "mailto:luke0112@snu.ac.kr", path
+      assert_includes hrefs, "https://scholar.google.com/citations?user=WV5svAIAAAAJ", path
+    end
+  end
+
+  def test_korean_copy
+    lsc = page("ko/research/lsc/index.html").at("main").text
+    ["같은 수준", "일관된지", "이웃들하고만"].each { |bad| refute_includes lsc, bad }
+    assert_includes lsc, "비슷한 수준"
+    home = page("ko/index.html")
+    assert_equal "서울대학교 데이터사이언스대학원 박사과정", home.at(".hero__role").text.strip
+    assert_equal "지도교수 이재윤 · SKI-ML Lab", home.at(".hero__advisor").text.gsub(/\s+/, " ").strip
+    assert_equal "한양대학교", home.css(".edu__school").last.text.strip
+    home.css(".tags li").each { |li| assert_match(/\S \(.+\)\z/, li.text.strip, "Korean tag with English gloss") }
+  end
+
+  # Table 4: compare with the strongest baseline per model (WUCS, WUCS, USC).
+  def test_consistency_compared_with_strongest_baseline
+    assert_includes page("research/lsc/index.html").at("#results").text, "80.3%, 86.5%, and 90.1%"
+    assert_includes page("ko/research/lsc/index.html").at("#results").text, "80.3%, 86.5%, 90.1%"
+  end
+
+  def test_numbers_cite_paper_sections
+    LSC_PAGES.each do |path|
+      text = page(path).at("main").text
+      ["(Introduction)", "(Method)", "(Training Phase)", "(Experimental Setup)"].each do |cite|
+        assert_includes text, cite, "#{path}: #{cite}"
+      end
+    end
+  end
+end

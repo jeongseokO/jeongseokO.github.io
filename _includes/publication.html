@@ -1,6 +1,10 @@
 {%- include vars.html -%}
 {%- assign pub = include.pub -%}
-{%- assign project = site.pages | where: "ref", pub.project_ref | where: "lang", page.lang | first -%}
+{%- comment -%} Reset first: include variables persist across loop iterations in Jekyll 3. {%- endcomment -%}
+{%- assign project = nil -%}
+{%- if pub.project_ref -%}
+  {%- assign project = site.pages | where: "ref", pub.project_ref | where: "lang", page.lang | first -%}
+{%- endif -%}
 <article class="pub" id="pub-{{ pub.id }}">
   <p class="pub-venue">{{ pub.venue }}</p>
   <h3 class="pub-title">{% if project %}<a href="{{ project.url | relative_url }}">{{ pub.title }}</a>{% else %}{{ pub.title }}{% endif %}</h3>

@@ -128,6 +128,7 @@ img, svg { max-width: 100%; height: auto; }
   text-decoration: none;
   letter-spacing: -.005em;
 }
+:root:lang(ko) .brand { font-style: normal; }
 
 .site-nav { grid-area: nav; display: flex; gap: 1.25rem; font-size: .92rem; }
 .site-nav a { color: var(--ink-2); text-decoration: none; padding: .2rem 0; }
@@ -389,7 +390,7 @@ img, svg { max-width: 100%; height: auto; }
 
 .bibtex__box { position: relative; }
 .bibtex__box pre {
-  margin: 0; padding: 1rem 1.1rem;
+  margin: 0; padding: 2.6rem 1.1rem 1rem;
   overflow-x: auto;
   background: var(--surface-2); border-radius: 10px;
   font-family: var(--mono); font-size: .78rem; line-height: 1.6; color: var(--ink);
@@ -487,6 +488,9 @@ table.results tr.ours td.method { font-weight: 650; }
   color: var(--ink-3); font-size: .85rem;
 }
 .site-footer p { margin: 0; }
+.footer-links { list-style: none; margin: 0 0 .6rem; padding: 0; display: flex; flex-wrap: wrap; gap: .35rem 1.1rem; }
+.footer-links a { color: var(--ink-2); }
+.footer-links a:hover { color: var(--accent); }
 @media (min-width: 760px) { .site-footer { padding: 2rem 24px 3rem; } }
 
 /* ---------- 404 ---------- */
