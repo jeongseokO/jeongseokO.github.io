@@ -31,7 +31,7 @@ layout: default
     <h2 id="h-citation">{{ t.sec_citation }}</h2>
     <div class="bibtex__box">
       <button type="button" class="copy-btn" data-copied="{{ t.copied }}" hidden>{{ t.copy }}</button>
-      <pre><code>{{ pub.bibtex | xml_escape }}</code></pre>
+      <pre tabindex="0"><code>{{ pub.bibtex | xml_escape }}</code></pre>
     </div>
   </section>
 </article>
