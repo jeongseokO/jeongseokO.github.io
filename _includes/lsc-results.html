@@ -1,0 +1,32 @@
+{%- include vars.html -%}
+<div class="table-scroll" tabindex="0" role="region" aria-label="{{ t.tbl_caption | truncatewords: 8 }}">
+<table class="results">
+  <caption>{{ t.tbl_caption }}</caption>
+  <thead>
+    <tr>
+      <th scope="col">{{ t.tbl_model }}</th>
+      <th scope="col">{{ t.tbl_method }}</th>
+      <th scope="col" class="num">{{ t.tbl_short }}</th>
+      <th scope="col" class="num">{{ t.tbl_long }}</th>
+      <th scope="col" class="num">{{ t.tbl_time }}</th>
+      <th scope="col" class="num">{{ t.tbl_memory }}</th>
+    </tr>
+  </thead>
+  {%- for m in site.data.lsc_results %}
+  <tbody>
+    {%- for r in m.rows %}
+    <tr data-model="{{ m.model }}" data-method="{{ r.method }}"{% if r.ours %} class="ours"{% endif %}>
+      {%- if forloop.first %}
+      <th scope="rowgroup" rowspan="{{ m.rows.size }}" class="model" title="{{ m.full }}">{{ m.model }}</th>
+      {%- endif %}
+      <td class="method">{% case r.method %}{% when "LSC" %}{{ t.tbl_ours }}{% when "LSC+DTK" %}{{ t.tbl_dtk }}{% else %}{{ r.method }}{% endcase %}</td>
+      <td class="num">{{ r.short }}</td>
+      <td class="num">{{ r.long }}</td>
+      <td class="num">{{ r.time }}</td>
+      <td class="num">{{ r.memory }}</td>
+    </tr>
+    {%- endfor %}
+  </tbody>
+  {%- endfor %}
+</table>
+</div>

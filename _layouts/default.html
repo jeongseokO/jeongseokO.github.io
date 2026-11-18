@@ -1,8 +1,4 @@
-{%- assign t = site.data.i18n[page.lang] -%}
-{%- assign other_lang = "ko" -%}
-{%- if page.lang == "ko" -%}{%- assign other_lang = "en" -%}{%- endif -%}
-{%- assign home_url = "/" -%}
-{%- if page.lang == "ko" -%}{%- assign home_url = "/ko/" -%}{%- endif -%}
+{%- include vars.html -%}
 {%- if page.ref -%}
   {%- assign pair = site.pages | where: "ref", page.ref -%}
   {%- assign counterpart = pair | where: "lang", other_lang | first -%}

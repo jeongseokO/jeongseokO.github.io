@@ -1,0 +1,10 @@
+{%- comment -%}
+  Shared per-page variables. Included at the top of every layout and of includes used
+  inside page bodies, because inner layouts and page content render before the outer
+  layout and cannot see its assignments.
+{%- endcomment -%}
+{%- assign t = site.data.i18n[page.lang] -%}
+{%- assign other_lang = "ko" -%}
+{%- if page.lang == "ko" -%}{%- assign other_lang = "en" -%}{%- endif -%}
+{%- assign home_url = "/" -%}
+{%- if page.lang == "ko" -%}{%- assign home_url = "/ko/" -%}{%- endif -%}

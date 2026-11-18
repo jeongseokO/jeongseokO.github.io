@@ -1,3 +1,4 @@
+{%- include vars.html -%}
 {%- assign pub = include.pub -%}
 {%- assign project = site.pages | where: "ref", pub.project_ref | where: "lang", page.lang | first -%}
 <article class="pub" id="pub-{{ pub.id }}">

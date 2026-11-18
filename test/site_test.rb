@@ -115,3 +115,64 @@ class HomeTest < Minitest::Test
     assert_includes ko.at("#education").text, "한양대학교"
   end
 end
+
+LSC_PAGES = %w[research/lsc/index.html ko/research/lsc/index.html].freeze
+
+class ResearchPageTest < Minitest::Test
+  def test_lsc_pages_structure
+    LSC_PAGES.each do |path|
+      doc = page(path)
+      %w[tldr problem method results citation].each do |id|
+        refute_nil doc.at_css("section##{id}"), "#{path}: missing section ##{id}"
+      end
+      img = doc.at('img[src$="lsc-overview.svg"]')
+      refute_nil img, "#{path}: overview figure"
+      refute_empty img["alt"].to_s.strip, "#{path}: figure alt text"
+      assert_includes doc.at("#citation pre").text, "@inproceedings{oh2026latent", path
+    end
+  end
+
+  # Values from Table 1 of arXiv:2508.18395v3: short avg, long avg, time %, memory %.
+  def test_lsc_results_table_matches_paper
+    LSC_PAGES.each do |path|
+      table = page(path).at("table.results")
+      refute_nil table, path
+      assert_equal 15, table.css("tbody tr").size, path
+      row = ->(model, method) do
+        tr = table.at(%(tbody tr[data-model="#{model}"][data-method="#{method}"]))
+        refute_nil tr, "#{path}: row #{model}/#{method}"
+        tr.css("td.num").map { |td| td.text.strip }
+      end
+      assert_equal %w[72.3 65.2 0.2 0.005], row.("LLaMA3.1-8B", "LSC"), path
+      assert_equal %w[77.1 N/A], row.("Qwen3-8B", "SC").first(2), path
+      assert_equal "18.2", row.("Qwen3-8B", "USC")[2], path
+      assert_equal %w[82.6 77.6 0.9 0.001], row.("LLaMA3.3-70B", "LSC"), path
+    end
+  end
+end
+
+# Inner layouts and page bodies render before the outer layout, so UI strings must be
+# available there too. These pin visible labels in both languages.
+class LabelTest < Minitest::Test
+  def test_home_section_labels
+    { "index.html" => %w[About Publications Copy], "ko/index.html" => %w[소개 논문 복사] }.each do |path, (about, pubs, copy)|
+      doc = page(path)
+      assert_equal about, doc.at("#h-about").text.strip, path
+      assert_equal pubs, doc.at("#h-publications").text.strip, path
+      assert_equal copy, doc.at("#publications .copy-btn").text.strip, path
+    end
+  end
+
+  def test_research_page_labels
+    { "research/lsc/index.html" => ["/#research", "Research", "Model", "Copy"],
+      "ko/research/lsc/index.html" => ["/ko/#research", "연구", "모델", "복사"] }.each do |path, (href, crumb, model, copy)|
+      doc = page(path)
+      link = doc.at(".eyebrow a")
+      assert_equal href, link["href"], path
+      assert_equal crumb, link.text.strip, path
+      assert_equal model, doc.at("table.results thead th").text.strip, path
+      refute_empty doc.at("table.results caption").text.strip, path
+      assert_equal copy, doc.at("#citation .copy-btn").text.strip, path
+    end
+  end
+end

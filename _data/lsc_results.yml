@@ -1,0 +1,27 @@
+# Table 1 of arXiv:2508.18395v3 ("Overall performance-efficiency trade-off of LSC").
+# Accuracy averages in %, overheads in % over vanilla decoding with 10 candidates.
+# Values are kept as strings so they print exactly as in the paper (e.g. 2E-3 -> 0.002).
+- model: LLaMA3.1-8B
+  full: LLaMA3.1-8B-Instruct
+  rows:
+    - { method: SC,      short: "72.2", long: "N/A",  time: "0.002",  memory: "0.0" }
+    - { method: WUCS,    short: "70.0", long: "63.8", time: "0.03",   memory: "0.0" }
+    - { method: USC,     short: "67.7", long: "64.8", time: "7.4",    memory: "16.2" }
+    - { method: LSC,     short: "72.3", long: "65.2", time: "0.2",    memory: "0.005", ours: true }
+    - { method: LSC+DTK, short: "72.8", long: "65.8", time: "0.2",    memory: "0.005", ours: true }
+- model: Qwen3-8B
+  full: Qwen3-8B
+  rows:
+    - { method: SC,      short: "77.1", long: "N/A",  time: "0.001",  memory: "0.0" }
+    - { method: WUCS,    short: "74.9", long: "75.4", time: "0.02",   memory: "0.0" }
+    - { method: USC,     short: "75.4", long: "74.7", time: "18.2",   memory: "20.2" }
+    - { method: LSC,     short: "76.8", long: "74.9", time: "0.6",    memory: "0.005", ours: true }
+    - { method: LSC+DTK, short: "76.5", long: "74.9", time: "0.6",    memory: "0.005", ours: true }
+- model: LLaMA3.3-70B
+  full: LLaMA3.3-70B-Instruct
+  rows:
+    - { method: SC,      short: "82.7", long: "N/A",  time: "0.0001", memory: "0.0" }
+    - { method: WUCS,    short: "81.1", long: "76.7", time: "0.008",  memory: "0.0" }
+    - { method: USC,     short: "82.5", long: "76.8", time: "9.7",    memory: "7.5" }
+    - { method: LSC,     short: "82.6", long: "77.6", time: "0.9",    memory: "0.001", ours: true }
+    - { method: LSC+DTK, short: "82.7", long: "77.6", time: "0.9",    memory: "0.001", ours: true }

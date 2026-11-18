@@ -1,8 +1,8 @@
 ---
 layout: default
 ---
+{%- include vars.html -%}
 {%- assign p = site.data.profile -%}
-{%- assign other_lang = "ko" -%}{%- if page.lang == "ko" -%}{%- assign other_lang = "en" -%}{%- endif -%}
 <section class="hero" aria-labelledby="name">
   <div class="hero__inner">
     {%- if p.photo %}

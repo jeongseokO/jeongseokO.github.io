@@ -1,0 +1,37 @@
+---
+layout: default
+---
+{%- include vars.html -%}
+{%- assign pub = site.data.publications | where: "id", page.pub | first -%}
+<article class="research">
+  <header class="research__head">
+    <p class="eyebrow"><a href="{{ home_url | relative_url }}#research">{{ t.research }}</a> · {{ pub.venue }}</p>
+    <h1 class="research__title">{{ pub.title }}</h1>
+    <p class="pub-authors">
+      {%- for a in pub.authors -%}
+        {%- if a.me -%}<strong class="me">{{ a.name }}</strong>{%- else -%}{{ a.name }}{%- endif -%}
+        {%- if a.corresponding -%}<sup class="pub-corr" title="{{ t.corresponding }}">*</sup>{%- endif -%}
+        {%- unless forloop.last %}, {% endunless -%}
+      {%- endfor -%}
+      <span class="research__affil"> · {{ site.data.profile.affiliation[page.lang] }}</span>
+    </p>
+    <div class="pub-links">
+      {%- if pub.links.arxiv %}<a class="chip" href="{{ pub.links.arxiv }}">{{ t.link_paper }}</a>{% endif %}
+      {%- if pub.links.code %}<a class="chip" href="{{ pub.links.code }}">{{ t.link_code }}</a>{% endif %}
+      {%- if pub.links.data %}<a class="chip" href="{{ pub.links.data }}">{{ t.link_data }}</a>{% endif %}
+      <a class="chip" href="#citation">BibTeX</a>
+    </div>
+  </header>
+
+  <div class="research__body prose">
+{{ content }}
+  </div>
+
+  <section id="citation" class="rsec" aria-labelledby="h-citation">
+    <h2 id="h-citation">{{ t.sec_citation }}</h2>
+    <div class="bibtex__box">
+      <button type="button" class="copy-btn" data-copied="{{ t.copied }}" hidden>{{ t.copy }}</button>
+      <pre><code>{{ pub.bibtex | xml_escape }}</code></pre>
+    </div>
+  </section>
+</article>

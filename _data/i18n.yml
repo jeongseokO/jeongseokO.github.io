@@ -21,6 +21,18 @@ en:
   link_project: Project page
   copy: Copy
   copied: Copied
+  research: Research
+  sec_citation: Citation
+  tbl_model: Model
+  tbl_method: Method
+  tbl_short: Short-answer avg. (%)
+  tbl_long: Long-answer avg. (%)
+  tbl_time: Time overhead (%)
+  tbl_memory: Memory overhead (%)
+  tbl_caption: "Accuracy and cost of each selection method (Table 1 of the paper). Overheads are relative to vanilla decoding of 10 candidates. SC has no long-answer score because exact matching does not apply to free-form answers."
+  tbl_ours: LSC (ours)
+  tbl_dtk: + Dynamic Top-K
+  fig_note: Figure drawn for this page after Figure 1 of the paper.
 ko:
   nav_label: 주요 메뉴
   nav_about: 소개
@@ -44,3 +56,15 @@ ko:
   link_project: 프로젝트 페이지
   copy: 복사
   copied: 복사됨
+  research: 연구
+  sec_citation: 인용
+  tbl_model: 모델
+  tbl_method: 방법
+  tbl_short: 짧은 답 평균 (%)
+  tbl_long: 긴 답 평균 (%)
+  tbl_time: 시간 오버헤드 (%)
+  tbl_memory: 메모리 오버헤드 (%)
+  tbl_caption: "선택 방법별 정확도와 비용 (논문 Table 1). 오버헤드는 후보 10개를 일반 디코딩할 때와 비교한 값입니다. SC는 정확히 일치하는 문자열만 셀 수 있어 자유 형식 답에는 적용할 수 없으므로 긴 답 점수가 없습니다."
+  tbl_ours: LSC (제안 방법)
+  tbl_dtk: + Dynamic Top-K
+  fig_note: 논문 Figure 1을 바탕으로 이 페이지를 위해 다시 그린 그림입니다.
