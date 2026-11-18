@@ -1,0 +1,32 @@
+{%- assign pub = include.pub -%}
+{%- assign project = site.pages | where: "ref", pub.project_ref | where: "lang", page.lang | first -%}
+<article class="pub" id="pub-{{ pub.id }}">
+  <p class="pub-venue">{{ pub.venue }}</p>
+  <h3 class="pub-title">{% if project %}<a href="{{ project.url | relative_url }}">{{ pub.title }}</a>{% else %}{{ pub.title }}{% endif %}</h3>
+  <p class="pub-authors">
+    {%- for a in pub.authors -%}
+      {%- if a.me -%}<strong class="me">{{ a.name }}</strong>{%- else -%}{{ a.name }}{%- endif -%}
+      {%- if a.corresponding -%}<sup class="pub-corr" title="{{ t.corresponding }}">*</sup>{%- endif -%}
+      {%- unless forloop.last %}, {% endunless -%}
+    {%- endfor -%}
+  </p>
+  {%- if pub.summary %}
+  <p class="pub-summary">{{ pub.summary[page.lang] }}</p>
+  {%- endif %}
+  <div class="pub-links">
+    {%- if pub.links.arxiv %}<a class="chip" href="{{ pub.links.arxiv }}">{{ t.link_paper }}</a>{% endif %}
+    {%- if pub.links.code %}<a class="chip" href="{{ pub.links.code }}">{{ t.link_code }}</a>{% endif %}
+    {%- if pub.links.data %}<a class="chip" href="{{ pub.links.data }}">{{ t.link_data }}</a>{% endif %}
+    {%- if project %}<a class="chip chip--accent" href="{{ project.url | relative_url }}">{{ t.link_project }}</a>{% endif %}
+  </div>
+  {%- if pub.bibtex %}
+  <details class="bibtex">
+    <summary>BibTeX</summary>
+    <div class="bibtex__box">
+      <button type="button" class="copy-btn" data-copied="{{ t.copied }}" hidden>{{ t.copy }}</button>
+      <pre><code>{{ pub.bibtex | xml_escape }}</code></pre>
+    </div>
+  </details>
+  {%- endif %}
+  <p class="pub-note"><sup>*</sup> {{ t.corresponding }}</p>
+</article>

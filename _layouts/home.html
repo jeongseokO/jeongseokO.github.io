@@ -1,0 +1,75 @@
+---
+layout: default
+---
+{%- assign p = site.data.profile -%}
+{%- assign other_lang = "ko" -%}{%- if page.lang == "ko" -%}{%- assign other_lang = "en" -%}{%- endif -%}
+<section class="hero" aria-labelledby="name">
+  <div class="hero__inner">
+    {%- if p.photo %}
+    <img class="hero__photo" src="{{ p.photo | relative_url }}" alt="{{ p.name[page.lang] }}" width="168" height="168">
+    {%- else %}
+    <div class="hero__photo hero__photo--monogram" aria-hidden="true">{{ p.monogram }}</div>
+    {%- endif %}
+    <div class="hero__text">
+      <h1 id="name" class="hero__name">{{ p.name[page.lang] }}</h1>
+      <p class="hero__alt-name" lang="{{ other_lang }}">{{ p.name[other_lang] }}</p>
+      <p class="hero__role">{{ p.position[page.lang] }} · {{ p.affiliation[page.lang] }}</p>
+      <p class="hero__advisor">{{ t.advised_by }} <a href="{{ p.advisor.url }}">{{ p.advisor.name[page.lang] }}</a> · <a href="{{ p.lab.url }}">{{ p.lab.name }}</a></p>
+      <ul class="hero__links">
+        <li><a href="mailto:{{ p.email }}">{{ t.email }}</a></li>
+        {%- for l in p.links %}
+        <li><a href="{{ l.url }}">{{ l.label }}</a></li>
+        {%- endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about" aria-labelledby="h-about">
+  <h2 class="section__label" id="h-about">{{ t.sec_about }}</h2>
+  <div class="section__body prose">
+{{ content }}
+  </div>
+</section>
+
+<section class="section" id="research" aria-labelledby="h-research">
+  <h2 class="section__label" id="h-research">{{ t.sec_research }}</h2>
+  <div class="section__body">
+    <ul class="interests">
+      {%- for i in p.interests %}
+      <li class="interest interest--{{ i.id }}">
+        <h3>{{ i.title[page.lang] }}</h3>
+        <p>{{ i.summary[page.lang] }}</p>
+        {%- assign topics = i.topics[page.lang] -%}
+        {%- if topics.size > 0 %}
+        <ul class="tags">{% for topic in topics %}<li>{{ topic }}</li>{% endfor %}</ul>
+        {%- endif %}
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="education" aria-labelledby="h-education">
+  <h2 class="section__label" id="h-education">{{ t.sec_education }}</h2>
+  <div class="section__body">
+    <ol class="timeline">
+      {%- for e in p.education %}
+      <li class="edu">
+        <p class="edu__degree">{{ e.degree[page.lang] }}</p>
+        <p class="edu__school">{{ e.school[page.lang] }}</p>
+        <p class="edu__status">{{ e.status[page.lang] }}</p>
+      </li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="section" id="publications" aria-labelledby="h-publications">
+  <h2 class="section__label" id="h-publications">{{ t.sec_publications }}</h2>
+  <div class="section__body">
+    {%- for pub in site.data.publications %}
+    {% include publication.html pub=pub %}
+    {%- endfor %}
+  </div>
+</section>

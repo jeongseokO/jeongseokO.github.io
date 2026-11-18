@@ -1,0 +1,92 @@
+# Facts shown on both language versions. Text that differs by language has en/ko keys.
+name:
+  en: Jungsuk Oh
+  ko: 오정석
+monogram: JO
+# Set to an image path (e.g. /assets/img/profile.jpg) to replace the monogram.
+photo:
+position:
+  en: Ph.D. Student
+  ko: 박사과정
+affiliation:
+  en: Graduate School of Data Science, Seoul National University
+  ko: 서울대학교 데이터사이언스대학원
+advisor:
+  name:
+    en: Prof. Jay-Yoon Lee
+    ko: 이재윤 교수
+  url: https://leejayyoon.github.io/
+lab:
+  name: SKI-ML Lab
+  url: https://www.skiml.snu.ac.kr/
+email: luke0112@snu.ac.kr
+links:
+  - label: Google Scholar
+    url: https://scholar.google.com/citations?user=WV5svAIAAAAJ
+  - label: GitHub
+    url: https://github.com/jeongseokO
+  - label: Hugging Face
+    url: https://huggingface.co/jeongseokoh
+  - label: LinkedIn
+    url: https://www.linkedin.com/in/%EC%A0%95%EC%84%9D-%EC%98%A4-438528255
+
+education:
+  - degree:
+      en: Ph.D. in Data Science
+      ko: 데이터사이언스 박사과정
+    school:
+      en: Graduate School of Data Science, Seoul National University
+      ko: 서울대학교 데이터사이언스대학원
+    status:
+      en: In progress
+      ko: 재학 중
+  - degree:
+      en: M.S. in Data Science
+      ko: 데이터사이언스 석사
+    school:
+      en: Graduate School of Data Science, Seoul National University
+      ko: 서울대학교 데이터사이언스대학원
+    status:
+      en: Graduated
+      ko: 졸업
+  - degree:
+      en: B.S. in Industrial Engineering
+      ko: 산업공학 학사
+    school:
+      en: Hanyang University
+      ko: 한양대학교 산업공학과
+    status:
+      en: Graduated
+      ko: 졸업
+
+interests:
+  - id: efficient-llm
+    title:
+      en: Efficient LLM
+      ko: 효율적인 LLM
+    summary:
+      en: Cutting the compute and memory that LLM inference needs by changing how attention and model architectures work.
+      ko: 어텐션과 모델 구조를 바꿔 LLM 추론에 드는 연산량과 메모리를 줄이는 연구입니다.
+    topics:
+      en: [Linear attention, Architecture pruning]
+      ko: [Linear attention, Architecture pruning]
+  - id: trustworthy-ai
+    title:
+      en: Trustworthy AI
+      ko: 신뢰할 수 있는 AI
+    summary:
+      en: Making model outputs consistent across samples and grounded in fact.
+      ko: 모델 출력이 샘플마다 일관되고 사실에 근거하도록 만드는 연구입니다.
+    topics:
+      en: [Consistency, Mitigating hallucination]
+      ko: [일관성 (Consistency), 환각 완화 (Hallucination)]
+  - id: prompt-engineering
+    title:
+      en: Prompt Engineering
+      ko: 프롬프트 엔지니어링
+    summary:
+      en: Designing prompts that steer models toward the intended behavior.
+      ko: 모델이 의도한 대로 동작하도록 프롬프트를 설계하는 연구입니다.
+    topics:
+      en: []
+      ko: []

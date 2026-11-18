@@ -1,0 +1,27 @@
+# One entry per paper, newest first. Both language versions render this list.
+- id: lsc2026
+  title: Latent Self-Consistency for Reliable Majority-Set Selection in Short- and Long-Answer Reasoning
+  authors:
+    - name: Jungsuk Oh
+      me: true
+    - name: Jay-Yoon Lee
+      corresponding: true
+  venue: AAAI 2026
+  year: 2026
+  summary:
+    en: Selects the most consistent of several sampled responses using learned summary-token embeddings. One method covers both short and long answers, and adds at most 0.9% to inference time.
+    ko: 여러 번 샘플링한 응답 가운데 가장 일관된 응답을 학습된 summary token 임베딩으로 고릅니다. 짧은 답과 긴 답을 하나의 방법으로 처리하며, 추론 시간은 최대 0.9%만 늘어납니다.
+  links:
+    arxiv: https://arxiv.org/abs/2508.18395
+    code: https://github.com/jeongseokO/LatentSC
+    data: https://huggingface.co/jeongseokoh
+  project_ref: lsc
+  bibtex: |-
+    @inproceedings{oh2026latent,
+      title     = {Latent Self-Consistency for Reliable Majority-Set Selection in Short- and Long-Answer Reasoning},
+      author    = {Oh, Jungsuk and Lee, Jay-Yoon},
+      booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence},
+      year      = {2026},
+      eprint    = {2508.18395},
+      archivePrefix = {arXiv}
+    }

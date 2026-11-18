@@ -8,6 +8,19 @@ en:
   theme_toggle: Switch between light and dark theme
   skip: Skip to content
   updated: Last updated
+  sec_about: About
+  sec_research: Research Interests
+  sec_education: Education
+  sec_publications: Publications
+  advised_by: Advised by
+  email: Email
+  corresponding: Corresponding author
+  link_paper: arXiv
+  link_code: Code
+  link_data: Data
+  link_project: Project page
+  copy: Copy
+  copied: Copied
 ko:
   nav_label: 주요 메뉴
   nav_about: 소개
@@ -18,3 +31,16 @@ ko:
   theme_toggle: 밝은 테마와 어두운 테마 전환
   skip: 본문으로 건너뛰기
   updated: 최종 수정
+  sec_about: 소개
+  sec_research: 연구 분야
+  sec_education: 학력
+  sec_publications: 논문
+  advised_by: 지도교수
+  email: 이메일
+  corresponding: 교신저자
+  link_paper: arXiv
+  link_code: 코드
+  link_data: 데이터
+  link_project: 프로젝트 페이지
+  copy: 복사
+  copied: 복사됨
