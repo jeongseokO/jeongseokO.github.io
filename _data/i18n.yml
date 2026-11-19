@@ -1,7 +1,7 @@
 en:
   nav_label: Main
   nav_about: About
-  nav_research: Research
+  nav_research: Research Interests
   nav_publications: Publications
   switch_label: 한국어
   switch_title: 한국어로 보기
@@ -9,7 +9,7 @@ en:
   skip: Skip to content
   updated: Last updated
   sec_about: About
-  sec_research: Research
+  sec_research: Research Interests
   diagram_label: How the three research directions combine into trustworthy AI
   sec_education: Education
   sec_publications: Publications
@@ -46,7 +46,7 @@ en:
 ko:
   nav_label: 주요 메뉴
   nav_about: 소개
-  nav_research: 연구
+  nav_research: 연구 관심 분야
   nav_publications: 논문
   switch_label: English
   switch_title: View in English
@@ -54,7 +54,7 @@ ko:
   skip: 본문으로 건너뛰기
   updated: 최종 수정
   sec_about: 소개
-  sec_research: 연구
+  sec_research: 연구 관심 분야
   diagram_label: 세 연구 방향이 모여 신뢰할 수 있는 AI가 되는 구조
   sec_education: 학력
   sec_publications: 논문

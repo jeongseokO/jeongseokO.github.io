@@ -79,8 +79,8 @@ pillars:
       ko: LLM 아키텍처
     keywords: Linear attention · Pruning
     summary:
-      en: "Two things make LLMs expensive to run: attention, whose cost grows quadratically with the length of the input, and the sheer size of the model. I look at linear and hybrid attention for the first, and at structured pruning, which removes whole layers or attention heads, for the second. A cheaper model also means we can afford to ask it the same question several times and compare the answers. My preprint SPEED works on the KV cache: it keeps long prompts in the lower layers only."
-      ko: "LLM을 돌리는 데 비용이 많이 드는 이유는 크게 두 가지입니다. 입력이 길어질수록 연산량이 제곱으로 늘어나는 attention, 그리고 모델 자체의 크기입니다. 앞의 문제는 linear·hybrid attention으로, 뒤의 문제는 층이나 attention head를 통째로 덜어내는 structured pruning으로 접근합니다. 모델이 가벼워지면 같은 질문을 여러 번 던져 답을 비교하는 일도 부담 없이 할 수 있습니다. 프리프린트인 SPEED는 KV cache 쪽에서, 긴 프롬프트를 하위층에만 남기는 방법을 다룹니다."
+      en: "Two things make LLMs expensive to run: attention, whose cost grows quadratically with the length of the input, and the sheer size of the model. I'm interested in linear and hybrid attention for the first, and in structured pruning, which removes whole layers or attention heads, for the second. A cheaper model also means we can afford to ask it the same question several times and compare the answers. My preprint SPEED works on the KV cache: it keeps long prompts in the lower layers only."
+      ko: "LLM을 돌리는 데 비용이 많이 드는 이유는 크게 두 가지입니다. 입력이 길어질수록 연산량이 제곱으로 늘어나는 attention, 그리고 모델 자체의 크기입니다. 앞의 문제와 관련해서는 linear·hybrid attention에, 뒤의 문제와 관련해서는 층이나 attention head를 통째로 덜어내는 structured pruning에 관심이 있습니다. 모델이 가벼워지면 같은 질문을 여러 번 던져 답을 비교하는 일도 부담 없이 할 수 있습니다. 프리프린트인 SPEED는 KV cache 쪽에서, 긴 프롬프트를 하위층에만 남기는 방법을 다룹니다."
     project_ref: speed
     more:
       en: Read about SPEED

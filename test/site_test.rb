@@ -426,3 +426,23 @@ class TeamVoiceTest < Minitest::Test
     assert_includes ko, "저희 팀은"
   end
 end
+
+# The section lists interests, not only finished work.
+class InterestsWordingTest < Minitest::Test
+  def test_section_and_nav_say_research_interests
+    { "index.html" => "Research Interests", "ko/index.html" => "연구 관심 분야" }.each do |path, label|
+      doc = page(path)
+      assert_equal label, doc.at("#h-research").text.strip, path
+      assert_equal label, doc.css(".site-nav a")[1].text.strip, path
+    end
+  end
+
+  def test_architecture_card_states_interest_not_finished_work
+    en = page("index.html").at(".pillar--architecture").text
+    refute_includes en, "I look at"
+    assert_includes en, "I'm interested in linear and hybrid attention"
+    ko = page("ko/index.html").at(".pillar--architecture").text
+    refute_includes ko, "접근합니다"
+    assert_includes ko, "관심이 있습니다"
+  end
+end
