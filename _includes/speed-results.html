@@ -1,0 +1,26 @@
+{%- include vars.html -%}
+<div class="table-scroll" tabindex="0" role="region" aria-label="{{ t.speed_tbl_label }}">
+<table class="results speed-results">
+  <caption>{{ t.speed_tbl_caption }}</caption>
+  <thead>
+    <tr>
+      <th scope="col">{{ t.speed_tbl_setting }}</th>
+      <th scope="col" class="num">{{ t.speed_tbl_avg }}</th>
+      <th scope="col" class="num">{{ t.speed_tbl_ttft }}</th>
+      <th scope="col" class="num">{{ t.speed_tbl_tpot }}</th>
+      <th scope="col" class="num">{{ t.speed_tbl_kv }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    {%- for r in site.data.speed_results %}
+    <tr data-k="{{ r.k }}"{% if r.ours %} class="ours"{% endif %}>
+      <th scope="row" class="model">{{ r.label }}</th>
+      <td class="num">{{ r.avg }}</td>
+      <td class="num">{{ r.ttft }}</td>
+      <td class="num">{{ r.tpot }}</td>
+      <td class="num">{{ r.kv }}</td>
+    </tr>
+    {%- endfor %}
+  </tbody>
+</table>
+</div>

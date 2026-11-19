@@ -379,6 +379,8 @@ img, svg { max-width: 100%; height: auto; }
 .project__title { margin-top: .2rem; font-size: 1.08rem; font-weight: 700; }
 .project__meta { margin-top: .3rem; color: var(--ink-2); font-size: .88rem; }
 .project__role { font-weight: 700; color: var(--ink); }
+.project__more { display: inline-block; margin-top: .6rem; font-size: .88rem; font-weight: 600; text-decoration: none; }
+.project__more:hover { text-decoration: underline; }
 .project__summary { margin-top: .5rem; max-width: 860px; color: var(--ink-2); font-size: .93rem; }
 
 /* ---------- Education ---------- */
@@ -411,6 +413,7 @@ img, svg { max-width: 100%; height: auto; }
 
 .research__title { margin-bottom: .9rem; font-size: clamp(1.6rem, 3.6vw, 2.15rem); font-weight: 750; line-height: 1.25; letter-spacing: -.025em; }
 .research__affil { color: var(--ink-3); }
+.research__context { color: var(--ink-2); font-size: .95rem; }
 .research__head { padding-bottom: 1.5rem; border-bottom: 1px solid var(--rule); }
 .research__head .pub-links { margin-top: .9rem; }
 
@@ -428,6 +431,29 @@ img, svg { max-width: 100%; height: auto; }
 .figure { margin: 1.25rem 0 1.5rem; }
 .figure__scroll { overflow-x: auto; border: 1px solid var(--rule); border-radius: 12px; background: #fdfcf9; }
 .figure__scroll img { display: block; width: 100%; min-width: 620px; }
+.figure--inline { padding: 1rem; border: 1px solid var(--rule); border-radius: 12px; background: var(--surface); overflow-x: auto; }
+.fig { display: block; width: 100%; min-width: 520px; height: auto; }
+.fig text { font-family: var(--sans); }
+.fg-head { fill: var(--ink); font-size: 13px; font-weight: 700; }
+.fg-axis, .fg-leg, .fg-note, .fg-lab { fill: var(--ink-3); font-size: 11.5px; }
+.fg-anchor { fill: var(--c-reliability); }
+.fg-prompt { fill: var(--accent); opacity: .85; }
+.fg-decode { fill: var(--c-prompting); }
+.fg-absent { fill: none; stroke: var(--ink-3); stroke-width: 1; stroke-dasharray: 3 3; opacity: .6; }
+.fg-cut { stroke: var(--ink); stroke-width: 1.5; stroke-dasharray: 6 4; fill: none; }
+.fg-cut-t { fill: var(--ink); font-size: 12.5px; font-weight: 700; }
+.fg-out { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 1.2; }
+.fg-out-t { fill: var(--accent); font-size: 13px; font-weight: 700; }
+.fg-step { fill: var(--bg); stroke: var(--rule-strong); stroke-width: 1.2; }
+.fg-num { fill: var(--accent); }
+.fg-num-t { fill: var(--on-ink); font-size: 11px; font-weight: 700; }
+.fg-step-t { fill: var(--ink); font-size: 13px; font-weight: 700; }
+.fg-step-s { fill: var(--ink-3); font-size: 11px; }
+.fg-up, .fg-right { stroke: var(--ink-3); stroke-width: 1.4; fill: none; }
+.fg-up-h, .fg-right-h { fill: var(--ink-3); }
+.research__body table:not(.results) { width: 100%; margin: 1rem 0 1.25rem; border-collapse: collapse; font-size: .9rem; }
+.research__body table:not(.results) th, .research__body table:not(.results) td { padding: .55rem .75rem; border-bottom: 1px solid var(--rule); text-align: left; vertical-align: top; }
+.research__body table:not(.results) thead th { background: var(--surface); color: var(--ink-2); font-size: .8rem; font-weight: 700; }
 .figure figcaption { margin-top: .5rem; color: var(--ink-3); font-size: .8rem; }
 
 .table-scroll { margin: 1.5rem 0; overflow-x: auto; border: 1px solid var(--rule); border-radius: 12px; }

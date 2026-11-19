@@ -2,9 +2,16 @@
 layout: default
 ---
 {%- include vars.html -%}
+{%- comment -%}
+  A research page either belongs to a paper (`pub:` = an id in _data/publications.yml),
+  which supplies title, authors, links and BibTeX, or stands alone with `title:` and
+  `context:` in its front matter (for example, part of a project).
+{%- endcomment -%}
+{%- assign pub = nil -%}
 {%- if page.pub -%}{%- assign pub = site.data.publications | where: "id", page.pub | first -%}{%- endif -%}
 <article class="research">
   <header class="research__head">
+    {%- if pub %}
     <p class="eyebrow"><a href="{{ home_url | relative_url }}#research">{{ t.research }}</a> · {{ pub.venue }}</p>
     <h1 class="research__title">{{ pub.title }}</h1>
     <p class="pub-authors">
@@ -21,12 +28,20 @@ layout: default
       {%- if pub.links.data %}<a class="chip" href="{{ pub.links.data }}">{{ t.link_data }}</a>{% endif %}
       <a class="chip" href="#citation">BibTeX</a>
     </div>
+    {%- else %}
+    <p class="eyebrow"><a href="{{ home_url | relative_url }}#research">{{ t.research }}</a>{% if page.eyebrow %} · {{ page.eyebrow }}{% endif %}</p>
+    <h1 class="research__title">{{ page.title }}</h1>
+    {%- if page.context %}
+    <p class="research__context">{{ page.context }}</p>
+    {%- endif %}
+    {%- endif %}
   </header>
 
   <div class="research__body prose">
 {{ content }}
   </div>
 
+  {%- if pub %}
   <section id="citation" class="rsec" aria-labelledby="h-citation">
     <h2 id="h-citation">{{ t.sec_citation }}</h2>
     <div class="bibtex__box">
@@ -34,4 +49,5 @@ layout: default
       <pre tabindex="0"><code>{{ pub.bibtex | xml_escape }}</code></pre>
     </div>
   </section>
+  {%- endif %}
 </article>

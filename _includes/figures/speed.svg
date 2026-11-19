@@ -1,0 +1,119 @@
+<svg class="fig fig-speed" viewBox="0 0 600 300" role="img" aria-labelledby="fig-speed-{{ page.lang }}">
+<title id="fig-speed-{{ page.lang }}">{{ include.title }}</title>
+<text class="fg-head" x="123" y="36" text-anchor="middle">BoS</text>
+<text class="fg-head" x="258" y="36" text-anchor="middle">Prompt (prefill)</text>
+<text class="fg-head" x="458" y="36" text-anchor="middle">Generated (decode)</text>
+<rect class="fg-anchor" x="110" y="52" width="26" height="18" rx="4"/>
+<rect class="fg-absent" x="140" y="52" width="26" height="18" rx="4"/>
+<rect class="fg-absent" x="170" y="52" width="26" height="18" rx="4"/>
+<rect class="fg-absent" x="200" y="52" width="26" height="18" rx="4"/>
+<rect class="fg-absent" x="230" y="52" width="26" height="18" rx="4"/>
+<rect class="fg-absent" x="260" y="52" width="26" height="18" rx="4"/>
+<rect class="fg-absent" x="290" y="52" width="26" height="18" rx="4"/>
+<rect class="fg-absent" x="320" y="52" width="26" height="18" rx="4"/>
+<rect class="fg-absent" x="350" y="52" width="26" height="18" rx="4"/>
+<rect class="fg-decode" x="400" y="52" width="26" height="18" rx="4"/>
+<rect class="fg-decode" x="430" y="52" width="26" height="18" rx="4"/>
+<rect class="fg-decode" x="460" y="52" width="26" height="18" rx="4"/>
+<rect class="fg-decode" x="490" y="52" width="26" height="18" rx="4"/>
+<rect class="fg-anchor" x="110" y="74" width="26" height="18" rx="4"/>
+<rect class="fg-absent" x="140" y="74" width="26" height="18" rx="4"/>
+<rect class="fg-absent" x="170" y="74" width="26" height="18" rx="4"/>
+<rect class="fg-absent" x="200" y="74" width="26" height="18" rx="4"/>
+<rect class="fg-absent" x="230" y="74" width="26" height="18" rx="4"/>
+<rect class="fg-absent" x="260" y="74" width="26" height="18" rx="4"/>
+<rect class="fg-absent" x="290" y="74" width="26" height="18" rx="4"/>
+<rect class="fg-absent" x="320" y="74" width="26" height="18" rx="4"/>
+<rect class="fg-absent" x="350" y="74" width="26" height="18" rx="4"/>
+<rect class="fg-decode" x="400" y="74" width="26" height="18" rx="4"/>
+<rect class="fg-decode" x="430" y="74" width="26" height="18" rx="4"/>
+<rect class="fg-decode" x="460" y="74" width="26" height="18" rx="4"/>
+<rect class="fg-decode" x="490" y="74" width="26" height="18" rx="4"/>
+<rect class="fg-anchor" x="110" y="96" width="26" height="18" rx="4"/>
+<rect class="fg-prompt" x="140" y="96" width="26" height="18" rx="4"/>
+<rect class="fg-prompt" x="170" y="96" width="26" height="18" rx="4"/>
+<rect class="fg-prompt" x="200" y="96" width="26" height="18" rx="4"/>
+<rect class="fg-prompt" x="230" y="96" width="26" height="18" rx="4"/>
+<rect class="fg-prompt" x="260" y="96" width="26" height="18" rx="4"/>
+<rect class="fg-prompt" x="290" y="96" width="26" height="18" rx="4"/>
+<rect class="fg-prompt" x="320" y="96" width="26" height="18" rx="4"/>
+<rect class="fg-prompt" x="350" y="96" width="26" height="18" rx="4"/>
+<rect class="fg-decode" x="400" y="96" width="26" height="18" rx="4"/>
+<rect class="fg-decode" x="430" y="96" width="26" height="18" rx="4"/>
+<rect class="fg-decode" x="460" y="96" width="26" height="18" rx="4"/>
+<rect class="fg-decode" x="490" y="96" width="26" height="18" rx="4"/>
+<rect class="fg-anchor" x="110" y="118" width="26" height="18" rx="4"/>
+<rect class="fg-prompt" x="140" y="118" width="26" height="18" rx="4"/>
+<rect class="fg-prompt" x="170" y="118" width="26" height="18" rx="4"/>
+<rect class="fg-prompt" x="200" y="118" width="26" height="18" rx="4"/>
+<rect class="fg-prompt" x="230" y="118" width="26" height="18" rx="4"/>
+<rect class="fg-prompt" x="260" y="118" width="26" height="18" rx="4"/>
+<rect class="fg-prompt" x="290" y="118" width="26" height="18" rx="4"/>
+<rect class="fg-prompt" x="320" y="118" width="26" height="18" rx="4"/>
+<rect class="fg-prompt" x="350" y="118" width="26" height="18" rx="4"/>
+<rect class="fg-decode" x="400" y="118" width="26" height="18" rx="4"/>
+<rect class="fg-decode" x="430" y="118" width="26" height="18" rx="4"/>
+<rect class="fg-decode" x="460" y="118" width="26" height="18" rx="4"/>
+<rect class="fg-decode" x="490" y="118" width="26" height="18" rx="4"/>
+<rect class="fg-anchor" x="110" y="140" width="26" height="18" rx="4"/>
+<rect class="fg-prompt" x="140" y="140" width="26" height="18" rx="4"/>
+<rect class="fg-prompt" x="170" y="140" width="26" height="18" rx="4"/>
+<rect class="fg-prompt" x="200" y="140" width="26" height="18" rx="4"/>
+<rect class="fg-prompt" x="230" y="140" width="26" height="18" rx="4"/>
+<rect class="fg-prompt" x="260" y="140" width="26" height="18" rx="4"/>
+<rect class="fg-prompt" x="290" y="140" width="26" height="18" rx="4"/>
+<rect class="fg-prompt" x="320" y="140" width="26" height="18" rx="4"/>
+<rect class="fg-prompt" x="350" y="140" width="26" height="18" rx="4"/>
+<rect class="fg-decode" x="400" y="140" width="26" height="18" rx="4"/>
+<rect class="fg-decode" x="430" y="140" width="26" height="18" rx="4"/>
+<rect class="fg-decode" x="460" y="140" width="26" height="18" rx="4"/>
+<rect class="fg-decode" x="490" y="140" width="26" height="18" rx="4"/>
+<rect class="fg-anchor" x="110" y="162" width="26" height="18" rx="4"/>
+<rect class="fg-prompt" x="140" y="162" width="26" height="18" rx="4"/>
+<rect class="fg-prompt" x="170" y="162" width="26" height="18" rx="4"/>
+<rect class="fg-prompt" x="200" y="162" width="26" height="18" rx="4"/>
+<rect class="fg-prompt" x="230" y="162" width="26" height="18" rx="4"/>
+<rect class="fg-prompt" x="260" y="162" width="26" height="18" rx="4"/>
+<rect class="fg-prompt" x="290" y="162" width="26" height="18" rx="4"/>
+<rect class="fg-prompt" x="320" y="162" width="26" height="18" rx="4"/>
+<rect class="fg-prompt" x="350" y="162" width="26" height="18" rx="4"/>
+<rect class="fg-decode" x="400" y="162" width="26" height="18" rx="4"/>
+<rect class="fg-decode" x="430" y="162" width="26" height="18" rx="4"/>
+<rect class="fg-decode" x="460" y="162" width="26" height="18" rx="4"/>
+<rect class="fg-decode" x="490" y="162" width="26" height="18" rx="4"/>
+<rect class="fg-anchor" x="110" y="184" width="26" height="18" rx="4"/>
+<rect class="fg-prompt" x="140" y="184" width="26" height="18" rx="4"/>
+<rect class="fg-prompt" x="170" y="184" width="26" height="18" rx="4"/>
+<rect class="fg-prompt" x="200" y="184" width="26" height="18" rx="4"/>
+<rect class="fg-prompt" x="230" y="184" width="26" height="18" rx="4"/>
+<rect class="fg-prompt" x="260" y="184" width="26" height="18" rx="4"/>
+<rect class="fg-prompt" x="290" y="184" width="26" height="18" rx="4"/>
+<rect class="fg-prompt" x="320" y="184" width="26" height="18" rx="4"/>
+<rect class="fg-prompt" x="350" y="184" width="26" height="18" rx="4"/>
+<rect class="fg-decode" x="400" y="184" width="26" height="18" rx="4"/>
+<rect class="fg-decode" x="430" y="184" width="26" height="18" rx="4"/>
+<rect class="fg-decode" x="460" y="184" width="26" height="18" rx="4"/>
+<rect class="fg-decode" x="490" y="184" width="26" height="18" rx="4"/>
+<rect class="fg-anchor" x="110" y="206" width="26" height="18" rx="4"/>
+<rect class="fg-prompt" x="140" y="206" width="26" height="18" rx="4"/>
+<rect class="fg-prompt" x="170" y="206" width="26" height="18" rx="4"/>
+<rect class="fg-prompt" x="200" y="206" width="26" height="18" rx="4"/>
+<rect class="fg-prompt" x="230" y="206" width="26" height="18" rx="4"/>
+<rect class="fg-prompt" x="260" y="206" width="26" height="18" rx="4"/>
+<rect class="fg-prompt" x="290" y="206" width="26" height="18" rx="4"/>
+<rect class="fg-prompt" x="320" y="206" width="26" height="18" rx="4"/>
+<rect class="fg-prompt" x="350" y="206" width="26" height="18" rx="4"/>
+<rect class="fg-decode" x="400" y="206" width="26" height="18" rx="4"/>
+<rect class="fg-decode" x="430" y="206" width="26" height="18" rx="4"/>
+<rect class="fg-decode" x="460" y="206" width="26" height="18" rx="4"/>
+<rect class="fg-decode" x="490" y="206" width="26" height="18" rx="4"/>
+<path class="fg-cut" d="M100 94H526"/>
+<text class="fg-cut-t" x="532" y="98">K = 24</text>
+<text class="fg-axis" x="96" y="65" text-anchor="end">Layer 32</text>
+<text class="fg-axis" x="96" y="109" text-anchor="end">Layer 24</text>
+<text class="fg-axis" x="96" y="219" text-anchor="end">Layer 1</text>
+<rect class="fg-anchor" x="24" y="239" width="18" height="13" rx="3"/><text class="fg-leg" x="50" y="250">BoS anchor: all layers</text>
+<rect class="fg-prompt" x="196" y="239" width="18" height="13" rx="3"/><text class="fg-leg" x="222" y="250">Prompt tokens: layers 1–K</text>
+<rect class="fg-absent" x="24" y="263" width="18" height="13" rx="3"/><text class="fg-leg" x="50" y="274">Not cached above K</text>
+<rect class="fg-decode" x="196" y="263" width="18" height="13" rx="3"/><text class="fg-leg" x="222" y="274">Generated tokens: all layers</text>
+</svg>

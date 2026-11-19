@@ -56,7 +56,7 @@ layout: default
           {%- if i.project_ref -%}
           {%- assign proj = site.pages | where: "ref", i.project_ref | where: "lang", page.lang | first -%}
           {%- if proj %}
-          <a class="pillar__more" href="{{ proj.url | relative_url }}">{{ t.read_lsc }} →</a>
+          <a class="pillar__more" href="{{ proj.url | relative_url }}">{{ i.more[page.lang] }} →</a>
           {%- endif -%}
           {%- endif %}
         </div>
@@ -82,10 +82,16 @@ layout: default
     <ul class="projects">
       {%- for pr in site.data.projects %}
       <li class="project" id="project-{{ pr.id }}">
-        <p class="project__org">{{ pr.org[page.lang] }}</p>
+        <p class="project__org">{{ pr.org[page.lang] }}{% if pr.period %} · {{ pr.period[page.lang] }}{% endif %}</p>
         <h3 class="project__title">{{ pr.title[page.lang] }}</h3>
         <p class="project__meta"><span class="project__role">{{ pr.role[page.lang] }}</span> · {{ pr.team[page.lang] }}</p>
         <p class="project__summary">{{ pr.summary[page.lang] }}</p>
+        {%- if pr.page_ref -%}
+        {%- assign pr_page = site.pages | where: "ref", pr.page_ref | where: "lang", page.lang | first -%}
+        {%- if pr_page %}
+        <a class="project__more" href="{{ pr_page.url | relative_url }}">{{ pr.more[page.lang] }} →</a>
+        {%- endif -%}
+        {%- endif %}
       </li>
       {%- endfor %}
     </ul>

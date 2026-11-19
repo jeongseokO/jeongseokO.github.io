@@ -10,7 +10,6 @@ en:
   updated: Last updated
   sec_about: About
   sec_research: Research
-  read_lsc: Read about Latent Self-Consistency
   diagram_label: How the three research directions combine into trustworthy AI
   sec_education: Education
   sec_publications: Publications
@@ -36,6 +35,14 @@ en:
   tbl_ours: LSC (ours)
   tbl_dtk: + Dynamic Top-K
   fig_note: Figure drawn for this page after Figure 1 of the paper.
+  speed_fig_note: "Drawn for this page with K = 24 of 32 layers. Each cell stands for a group of four layers."
+  speed_tbl_label: SPEED quality and cost by cutoff
+  speed_tbl_caption: "Average OLMES-style score and efficiency at 128K context (Table 2 of the paper, rows with the BoS anchor). Speedups and memory savings are relative to the full-depth model."
+  speed_tbl_setting: Setting
+  speed_tbl_avg: Avg. score
+  speed_tbl_ttft: First-token speedup
+  speed_tbl_tpot: Per-token speedup
+  speed_tbl_kv: KV memory saved
 ko:
   nav_label: 주요 메뉴
   nav_about: 소개
@@ -48,7 +55,6 @@ ko:
   updated: 최종 수정
   sec_about: 소개
   sec_research: 연구
-  read_lsc: Latent Self-Consistency 자세히 보기
   diagram_label: 세 연구 방향이 모여 신뢰할 수 있는 AI가 되는 구조
   sec_education: 학력
   sec_publications: 논문
@@ -74,3 +80,11 @@ ko:
   tbl_ours: LSC (제안 방법)
   tbl_dtk: + Dynamic Top-K
   fig_note: 논문 Figure 1을 바탕으로 이 페이지를 위해 다시 그린 그림입니다.
+  speed_fig_note: "32층 가운데 K = 24인 경우를 이 페이지를 위해 그렸습니다. 한 칸은 네 층을 나타냅니다."
+  speed_tbl_label: K별 SPEED의 품질과 비용
+  speed_tbl_caption: "128K 문맥에서의 평균 OLMES 계열 점수와 효율 (논문 Table 2 중 BoS anchor를 쓴 행). 속도 향상과 메모리 절감은 전체 깊이 모델 대비 값입니다."
+  speed_tbl_setting: 설정
+  speed_tbl_avg: 평균 점수
+  speed_tbl_ttft: 첫 토큰 속도 향상
+  speed_tbl_tpot: 토큰당 속도 향상
+  speed_tbl_kv: KV 메모리 절감

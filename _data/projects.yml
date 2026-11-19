@@ -3,15 +3,22 @@
   org:
     en: SKI-ML Lab × Ministry of Food and Drug Safety (MFDS), Korea
     ko: SKI-ML 연구실 × 식품의약품안전처
+  period:
+    en: Feb 2025 – Nov 2026
+    ko: 2025.02 – 2026.11
+  title:
+    en: Korean–English translation model for drug regulatory documents
+    ko: 의약품 등 안전관리 분야의 전문 번역모델(한-영) 개발 연구
   role:
     en: Head researcher
     ko: head 연구원
   team:
     en: 'PI: Prof. Howard Lee (<a href="https://ccadd.snu.ac.kr/">CCADD</a>, SNU) · Co-PI: Prof. Jay-Yoon Lee (<a href="https://www.skiml.snu.ac.kr/">SKI-ML Lab</a>)'
     ko: '연구책임자 이형기 교수 (서울대 <a href="https://ccadd.snu.ac.kr/">CCADD</a>) · 공동연구책임자 이재윤 교수 (<a href="https://www.skiml.snu.ac.kr/">SKI-ML 연구실</a>)'
-  title:
-    en: Korean–English translation of regulatory documents
-    ko: 식약처 문서 한↔영 번역
   summary:
-    en: "We built a Korean↔English translation model for documents of Korea's Ministry of Food and Drug Safety (MFDS), fine-tuning VaivGem 9B on in-domain sentence pairs. Growing the training data from 17K to 514K pairs raised Korean→English BLEU from 46.4 to 55.5. We also trained a quality-estimation model for these documents; its judgments matched human preferences 72.5% of the time, up from 68.2% before domain training."
-    ko: "식품의약품안전처 문서를 한↔영으로 번역하는 모델을 만들었습니다. VaivGem 9B를 식약처 문장쌍으로 미세조정했고, 학습 데이터를 1.7만 쌍에서 51만 쌍으로 늘리자 한→영 BLEU가 46.4에서 55.5로 올랐습니다. 식약처 문서에 맞춘 번역 품질 평가(QE) 모델도 학습했는데, 사람이 더 낫다고 고른 번역과 판단이 일치하는 비율이 도메인 학습 전 68.2%에서 72.5%로 높아졌습니다."
+    en: "MFDS needs review reports, guidelines, and regulations in English for joint reviews with foreign regulators, and this had depended on human translators. SKI-ML Lab's part was the translation model itself: we compared candidate models, fine-tuned VaivGem-9B, and worked out how to prompt it and catch its errors at inference time. The final model is now hosted on a server inside MFDS."
+    ko: "식약처는 해외 규제기관과의 공동심사 등을 위해 허가심사보고서, 가이드라인, 법령을 영어로 옮겨야 하는데, 지금까지는 번역사에 의존해 왔습니다. SKI-ML 연구실은 번역 모델 자체를 맡았습니다. 여러 후보 모델을 비교해 VaivGem-9B를 미세조정했고, 추론할 때 프롬프트를 어떻게 줄지와 오류를 어떻게 잡을지를 정했습니다. 최종 모델은 식약처 내부 서버에 탑재했습니다."
+  page_ref: translation
+  more:
+    en: How we prompted and checked the model
+    ko: 추론 전략 자세히 보기

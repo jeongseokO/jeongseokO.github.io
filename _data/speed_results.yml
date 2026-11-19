@@ -1,0 +1,8 @@
+# Table 2 of arXiv:2605.06105v1 (rows with the BoS anchor, plus the full-depth baseline).
+# Avg. = OLMES-style average score. TTFT/TPOT = speedup vs. Full-IT, KV = active KV memory
+# reduction vs. Full-IT, all at 128K context. Strings keep the paper's formatting.
+- { k: "32", label: "Full-IT (all 32 layers)", avg: "51.4", ttft: "–",     tpot: "–",    kv: "–" }
+- { k: "28", label: "SPEED-28 + BoS",          avg: "51.3", ttft: "+14%",  tpot: "+10%", kv: "12.5%" }
+- { k: "24", label: "SPEED-24 + BoS",          avg: "51.2", ttft: "+33%",  tpot: "+22%", kv: "25.0%", ours: true }
+- { k: "20", label: "SPEED-20 + BoS",          avg: "49.9", ttft: "+60%",  tpot: "+36%", kv: "37.5%" }
+- { k: "16", label: "SPEED-16 + BoS",          avg: "45.4", ttft: "+101%", tpot: "+55%", kv: "50.0%" }

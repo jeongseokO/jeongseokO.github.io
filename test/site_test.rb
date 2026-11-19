@@ -11,6 +11,10 @@ PAGES = {
   "ko/index.html"              => ["ko", "/ko/",              "/"],
   "research/lsc/index.html"    => ["en", "/research/lsc/",    "/ko/research/lsc/"],
   "ko/research/lsc/index.html" => ["ko", "/ko/research/lsc/", "/research/lsc/"],
+  "research/speed/index.html" => ["en", "/research/speed/", "/ko/research/speed/"],
+  "ko/research/speed/index.html" => ["ko", "/ko/research/speed/", "/research/speed/"],
+  "research/translation-inference/index.html" => ["en", "/research/translation-inference/", "/ko/research/translation-inference/"],
+  "ko/research/translation-inference/index.html" => ["ko", "/ko/research/translation-inference/", "/research/translation-inference/"],
 }.freeze
 
 def page(path)
@@ -328,7 +332,8 @@ class PreprintAndProjectTest < Minitest::Test
         assert_includes pub.at(".pub-authors").text, name.delete("\\"), path
       end
       assert_includes pub.css("a").map { |a| a["href"] }, "https://arxiv.org/abs/2605.06105", path
-      assert_empty pub.css(".chip--accent"), "#{path}: SPEED has no project page"
+      project_href = path.start_with?("ko/") ? "/ko/research/speed/" : "/research/speed/"
+      assert_equal [project_href], pub.css(".chip--accent").map { |a| a["href"] }, path
       assert_includes pub.at("pre").text, "@article{oh2026shallow", path
     end
   end
@@ -340,12 +345,15 @@ class PreprintAndProjectTest < Minitest::Test
   end
 
   def test_mfds_project_in_both_languages
-    { "index.html" => "Ministry of Food and Drug Safety", "ko/index.html" => "식품의약품안전처" }.each do |path, org|
+    { "index.html" => ["Ministry of Food and Drug Safety", "Feb 2025 – Nov 2026"],
+      "ko/index.html" => ["식품의약품안전처", "2025.02 – 2026.11"] }.each do |path, (org, period)|
       projects = page(path).css("#projects .project")
       assert_equal 1, projects.size, path
       text = projects.first.text
       assert_includes text, org, path
-      %w[46.4 55.5 68.2% 72.5%].each { |n| assert_includes text, n, path }
+      assert_includes text, period, path
+      assert_includes text, "VaivGem-9B", path
+      refute_includes text, "BLEU", "#{path}: keep it brief, no metrics"
     end
   end
 
@@ -357,6 +365,53 @@ class PreprintAndProjectTest < Minitest::Test
       hrefs = project.css("a").map { |a| a["href"] }
       assert_includes hrefs, "https://ccadd.snu.ac.kr/", path
       assert_includes hrefs, "https://www.skiml.snu.ac.kr/", path
+    end
+  end
+end
+
+class NewResearchPagesTest < Minitest::Test
+  def test_pillar_cards_link_to_their_pages
+    { "index.html" => "", "ko/index.html" => "/ko" }.each do |path, pre|
+      links = page(path).css("#research .pillar").map { |c| c.at(".pillar__more")&.[]("href") }
+      assert_equal ["#{pre}/research/speed/", "#{pre}/research/lsc/", "#{pre}/research/translation-inference/"], links, path
+    end
+  end
+
+  def test_speed_page_matches_paper
+    %w[research/speed/index.html ko/research/speed/index.html].each do |path|
+      doc = page(path)
+      assert_equal SPEED_TITLE, doc.at(".research__title").text.strip, path
+      %w[tldr problem method results citation].each { |id| refute_nil doc.at_css("section##{id}"), "#{path}: ##{id}" }
+      refute_nil doc.at("svg.fig-speed[role=img] title"), "#{path}: SPEED figure"
+      table = doc.at("table.speed-results")
+      refute_nil table, path
+      row = ->(k) { table.at(%(tbody tr[data-k="#{k}"])).css("td.num").map { |td| td.text.strip } }
+      assert_equal ["51.4", "–", "–", "–"], row.("32"), path
+      assert_equal ["51.2", "+33%", "+22%", "25.0%"], row.("24"), path
+      assert_equal ["45.4", "+101%", "+55%", "50.0%"], row.("16"), path
+      assert_includes doc.at("#citation pre").text, "@article{oh2026shallow", path
+    end
+  end
+
+  def test_translation_inference_page
+    %w[research/translation-inference/index.html ko/research/translation-inference/index.html].each do |path|
+      doc = page(path)
+      %w[tldr templates loop].each { |id| refute_nil doc.at_css("section##{id}"), "#{path}: ##{id}" }
+      text = doc.at("main").text
+      ["Retrieval Few-shot", "Segment", "62.3", "58.7", "Length", "Placeholder", "Copy", "QE"].each do |w|
+        assert_includes text, w, path
+      end
+      refute_nil doc.at("svg.fig-loop[role=img] title"), "#{path}: loop figure"
+      assert_nil doc.at("#citation"), "#{path}: no paper, no citation block"
+      ["corpus", "glossary", "말뭉치", "용어집", "Dictionary", "사전 hint"].each { |w| refute_includes text, w, path }
+    end
+  end
+
+  def test_mfds_card_leaves_out_data_construction_and_links_to_inference_page
+    { "index.html" => "/research/translation-inference/", "ko/index.html" => "/ko/research/translation-inference/" }.each do |path, href|
+      card = page(path).at("#project-mfds")
+      ["corpus", "glossary", "말뭉치", "용어집"].each { |w| refute_includes card.text, w, path }
+      assert_includes card.css("a").map { |a| a["href"] }, href, path
     end
   end
 end

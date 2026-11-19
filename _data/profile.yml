@@ -79,8 +79,12 @@ pillars:
       ko: LLM 아키텍처
     keywords: Linear attention · Pruning
     summary:
-      en: "Two things make LLMs expensive to run: attention, whose cost grows quadratically with the length of the input, and the sheer size of the model. I look at linear and hybrid attention for the first, and at structured pruning, which removes whole layers or attention heads, for the second. A cheaper model also means we can afford to ask it the same question several times and compare the answers."
-      ko: "LLM을 돌리는 데 비용이 많이 드는 이유는 크게 두 가지입니다. 입력이 길어질수록 연산량이 제곱으로 늘어나는 attention, 그리고 모델 자체의 크기입니다. 앞의 문제는 linear·hybrid attention으로, 뒤의 문제는 층이나 attention head를 통째로 덜어내는 structured pruning으로 접근합니다. 모델이 가벼워지면 같은 질문을 여러 번 던져 답을 비교하는 일도 부담 없이 할 수 있습니다."
+      en: "Two things make LLMs expensive to run: attention, whose cost grows quadratically with the length of the input, and the sheer size of the model. I look at linear and hybrid attention for the first, and at structured pruning, which removes whole layers or attention heads, for the second. A cheaper model also means we can afford to ask it the same question several times and compare the answers. My preprint SPEED works on the KV cache: it keeps long prompts in the lower layers only."
+      ko: "LLM을 돌리는 데 비용이 많이 드는 이유는 크게 두 가지입니다. 입력이 길어질수록 연산량이 제곱으로 늘어나는 attention, 그리고 모델 자체의 크기입니다. 앞의 문제는 linear·hybrid attention으로, 뒤의 문제는 층이나 attention head를 통째로 덜어내는 structured pruning으로 접근합니다. 모델이 가벼워지면 같은 질문을 여러 번 던져 답을 비교하는 일도 부담 없이 할 수 있습니다. 프리프린트인 SPEED는 KV cache 쪽에서, 긴 프롬프트를 하위층에만 남기는 방법을 다룹니다."
+    project_ref: speed
+    more:
+      en: Read about SPEED
+      ko: SPEED 자세히 보기
     topics:
       en: [Linear & hybrid attention, Structured pruning (depth / width)]
       ko: [선형·하이브리드 어텐션 (Linear & hybrid attention), 구조적 프루닝 (Structured pruning)]
@@ -99,6 +103,9 @@ pillars:
       en: [Self-consistency, Hallucination mitigation]
       ko: [자기 일관성 (Self-consistency), 환각 완화 (Hallucination mitigation)]
     project_ref: lsc
+    more:
+      en: Read about Latent Self-Consistency
+      ko: Latent Self-Consistency 자세히 보기
     illus_title:
       en: "Five sampled responses: four agree on answer A and become the selected answer, one outlier answers B"
       ko: "샘플링한 응답 다섯 개 가운데 네 개가 답 A에 합의해 선택되고, 하나는 B로 답한 동떨어진 응답"
@@ -108,8 +115,12 @@ pillars:
       ko: 프롬프트 엔지니어링
     keywords: CoT · In-context learning
     summary:
-      en: "A lot can change without touching the weights. How the prompt is worded, whether the model is asked to reason step by step, and which examples it sees can all change what comes out. I'm interested in prompting because it is the cheapest way to get a model to do what we mean."
-      ko: "가중치를 건드리지 않고도 바뀌는 게 많습니다. 프롬프트를 어떻게 쓰는지, 단계별로 생각하게 하는지, 어떤 예시를 보여 주는지에 따라 결과가 달라집니다. 모델을 원하는 방향으로 움직이는 가장 값싼 방법이라서 프롬프트에 관심을 두고 있습니다."
+      en: "A lot can change without touching the weights. How the prompt is worded, whether the model is asked to reason step by step, and which examples it sees can all change what comes out. I'm interested in prompting because it is the cheapest way to get a model to do what we mean. In the MFDS translation project, I compared prompt templates and built a post-editing loop that catches broken outputs."
+      ko: "가중치를 건드리지 않고도 바뀌는 게 많습니다. 프롬프트를 어떻게 쓰는지, 단계별로 생각하게 하는지, 어떤 예시를 보여 주는지에 따라 결과가 달라집니다. 모델을 원하는 방향으로 움직이는 가장 값싼 방법이라서 프롬프트에 관심을 두고 있습니다. 식약처 번역 과제에서는 프롬프트 템플릿을 비교하고, 잘못된 출력을 잡아내는 후편집 루프를 만들었습니다."
+    project_ref: translation
+    more:
+      en: Read about inference strategies for translation
+      ko: 번역 추론 전략 자세히 보기
     topics:
       en: [Chain-of-thought prompting, In-context learning]
       ko: [사고 사슬 프롬프팅 (Chain-of-thought), 인컨텍스트 러닝 (In-context learning)]

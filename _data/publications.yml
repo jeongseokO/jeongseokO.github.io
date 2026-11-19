@@ -18,6 +18,7 @@
     ko: "긴 프롬프트를 모든 층에 남겨 둘 필요는 없습니다. SPEED는 프롬프트를 하위층에서만 처리하고, 생성되는 토큰은 모든 층을 거치게 합니다. Llama-3.1-8B에서 프롬프트에 전체 층의 75%만 쓰고도 평균 벤치마크 점수는 51.2(전체 층 사용 시 51.4)를 유지했고, 128K 문맥에서 첫 토큰은 33%, 토큰당 디코딩은 22% 빨라졌으며 KV 메모리는 25% 줄었습니다."
   links:
     arxiv: https://arxiv.org/abs/2605.06105
+  project_ref: speed
   bibtex: |-
     @article{oh2026shallow,
       title   = {Shallow Prefill, Deep Decoding: Efficient Long-Context Inference via Layer-Asymmetric KV Visibility},
