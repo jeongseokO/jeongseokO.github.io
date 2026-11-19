@@ -158,7 +158,7 @@ end
 # available there too. These pin visible labels in both languages.
 class LabelTest < Minitest::Test
   def test_home_section_labels
-    { "index.html" => %w[About Publications Copy], "ko/index.html" => %w[소개 논문 복사] }.each do |path, (about, pubs, copy)|
+    { "index.html" => %w[About Publications Copy], "ko/index.html" => %w[About Publications 복사] }.each do |path, (about, pubs, copy)|
       doc = page(path)
       assert_equal about, doc.at("#h-about").text.strip, path
       assert_equal pubs, doc.at("#h-publications").text.strip, path
@@ -168,7 +168,7 @@ class LabelTest < Minitest::Test
 
   def test_research_page_labels
     { "research/lsc/index.html" => ["/#research", "Research", "Model", "Copy"],
-      "ko/research/lsc/index.html" => ["/ko/#research", "연구", "모델", "복사"] }.each do |path, (href, crumb, model, copy)|
+      "ko/research/lsc/index.html" => ["/ko/#research", "Research", "모델", "복사"] }.each do |path, (href, crumb, model, copy)|
       doc = page(path)
       link = doc.at(".eyebrow a")
       assert_equal href, link["href"], path
@@ -430,7 +430,7 @@ end
 # The section lists interests, not only finished work.
 class InterestsWordingTest < Minitest::Test
   def test_section_and_nav_say_research_interests
-    { "index.html" => "Research Interests", "ko/index.html" => "연구 관심 분야" }.each do |path, label|
+    { "index.html" => "Research Interests", "ko/index.html" => "Research Interests" }.each do |path, label|
       doc = page(path)
       assert_equal label, doc.at("#h-research").text.strip, path
       assert_equal label, doc.css(".site-nav a")[1].text.strip, path
@@ -476,5 +476,29 @@ class CopyEmailMarkupTest < Minitest::Test
       end
       refute_nil doc.at("#copy-status[aria-live=polite]"), "#{path}: live region"
     end
+  end
+end
+
+# Menus and section names stay in English on the Korean pages too.
+class EnglishLabelsOnKoreanPagesTest < Minitest::Test
+  def test_korean_home_uses_english_menu_and_sections
+    doc = page("ko/index.html")
+    assert_equal ["About", "Research Interests", "Publications"], doc.css(".site-nav a").map { |a| a.text.strip }
+    { "h-about" => "About", "h-research" => "Research Interests", "h-publications" => "Publications",
+      "h-projects" => "Projects", "h-education" => "Education" }.each do |id, label|
+      assert_equal label, doc.at("##{id}").text.strip, id
+    end
+    assert_equal ["LLM Architecture", "Reliability", "Prompt Engineering"], doc.css(".pillar h3").map { |h| h.text.strip }
+  end
+
+  def test_korean_research_pages_use_english_section_labels
+    %w[ko/research/lsc/index.html ko/research/speed/index.html ko/research/translation-inference/index.html].each do |path|
+      doc = page(path)
+      assert_equal "Research", doc.at(".eyebrow a").text.strip, path
+      assert_equal "TL;DR", doc.at("#tldr h2").text.strip, path
+      cite = doc.at("#h-citation")
+      assert_equal "Citation", cite.text.strip, path if cite
+    end
+    assert_includes page("ko/research/translation-inference/index.html").at(".eyebrow").text, "Prompt Engineering"
   end
 end

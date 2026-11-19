@@ -9,7 +9,7 @@ title: Latent Self-Consistency
 description: "Latent Self-Consistency(AAAI 2026): 학습된 summary token 임베딩으로 여러 LLM 응답 가운데 가장 일관된 응답을 고르는 방법. 짧은 답과 긴 답 모두에 적용되며 추론 시간은 1% 미만으로 늘어납니다."
 ---
 <section id="tldr" class="rsec tldr" markdown="1">
-## 요약
+## TL;DR
 
 여러 응답을 샘플링한 뒤 다수결로 답을 고르는 Self-Consistency(SC)는 LLM의 정확도를 높이지만, 답을 문자열 그대로 비교할 수 있을 때만 동작합니다. Latent Self-Consistency(LSC)는 문자열 대신 학습된 summary token 임베딩으로 응답을 비교합니다. 그래서 숫자, 객관식 보기, 코드, 자유 형식 글에 같은 선택 규칙을 쓸 수 있습니다. 세 모델에서 LSC는 짧은 답 평균 정확도가 SC와 0.3%p 이내로 비슷한 수준이고, SC를 적용할 수 없는 긴 답 과제까지 처리하며, 추론 시간은 최대 0.9%만 늘어납니다(Table 1).
 </section>

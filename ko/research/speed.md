@@ -9,7 +9,7 @@ title: SPEED
 description: "SPEED(Shallow Prefill, dEEp Decode)는 긴 프롬프트를 LLM의 하위층에만 남기고 생성 토큰은 모든 층을 쓰게 해, 벤치마크 점수를 거의 유지하면서 긴 문맥 추론 비용을 줄입니다."
 ---
 <section id="tldr" class="rsec tldr" markdown="1">
-## 요약
+## TL;DR
 
 LLM은 긴 프롬프트를 읽을 때 모든 프롬프트 토큰의 key와 value(KV cache)를 모든 층에 저장하고, 토큰을 하나 생성할 때마다 이를 다시 읽습니다. SPEED는 프롬프트 토큰을 하위층에만 남기고, 모델이 생성하는 토큰은 그대로 모든 층을 거치게 합니다. Llama-3.1-8B에서 32층 가운데 24층에만 프롬프트를 남겼을 때 평균 점수는 51.2로, 전체 모델의 51.4와 비슷했습니다. 128K 문맥에서는 첫 토큰이 33%, 토큰당 디코딩이 22% 빨라졌고 KV 메모리는 25% 줄었습니다(Table 2).
 </section>

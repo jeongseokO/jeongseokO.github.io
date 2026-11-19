@@ -76,7 +76,7 @@ pillars:
   - id: architecture
     title:
       en: LLM Architecture
-      ko: LLM 아키텍처
+      ko: LLM Architecture
     keywords: Linear attention · Pruning
     summary:
       en: "Two things make LLMs expensive to run: attention, whose cost grows quadratically with the length of the input, and the sheer size of the model. I'm interested in linear and hybrid attention for the first, and in structured pruning, which removes whole layers or attention heads, for the second. A cheaper model also means we can afford to ask it the same question several times and compare the answers. My preprint SPEED works on the KV cache: it keeps long prompts in the lower layers only."
@@ -94,7 +94,7 @@ pillars:
   - id: reliability
     title:
       en: Reliability
-      ko: 응답 신뢰성
+      ko: Reliability
     keywords: Consistency · Hallucination
     summary:
       en: "Ask an LLM the same question a few times and the answers often differ. I study how to put that disagreement to use. Self-consistency keeps the answer most samples agree on, and the same signal can flag hallucinations, where the model states things that are not grounded in fact. In Latent Self-Consistency, the model compares its answers through its own hidden representations instead of matching strings."
@@ -112,7 +112,7 @@ pillars:
   - id: prompting
     title:
       en: Prompt Engineering
-      ko: 프롬프트 엔지니어링
+      ko: Prompt Engineering
     keywords: CoT · In-context learning
     summary:
       en: "A lot can change without touching the weights. How the prompt is worded, whether the model is asked to reason step by step, and which examples it sees can all change what comes out. I'm interested in prompting because it is the cheapest way to get a model to do what we mean. In the MFDS translation project, we compared prompt templates and built a post-editing loop that catches broken outputs."

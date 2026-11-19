@@ -5,12 +5,12 @@ ref: translation
 permalink: /ko/research/translation-inference/
 locale: ko_KR
 title: 의약품 규제 문서 번역의 추론 전략
-eyebrow: 프롬프트 엔지니어링
+eyebrow: Prompt Engineering
 context: "식약처 번역 과제의 일부 · SKI-ML 연구실 × 식품의약품안전처 · 2025.02 – 2026.11"
 description: "의약품 규제 문서용 한-영 번역 모델에 프롬프트를 어떻게 줬는지, 그리고 출력을 검사하고 고치는 후편집 루프를 소개합니다."
 ---
 <section id="tldr" class="rsec tldr" markdown="1">
-## 요약
+## TL;DR
 
 식약처 번역 과제에서는 모델을 어떻게 학습하느냐만큼, 번역을 어떻게 시키느냐도 중요했습니다. 프롬프트 템플릿 네 가지를 비교해서 가장 정확한 Retrieval Few-shot과 가장 빠른 Segment 두 가지를 남겼습니다. 그래도 LLM은 가끔 잘못된 출력을 내기 때문에, 모든 번역을 검사하고 통과하지 못한 번역은 고치거나 경고를 붙이는 후편집 루프로 모델을 감쌌습니다.
 </section>
