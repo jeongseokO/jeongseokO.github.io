@@ -115,8 +115,8 @@ pillars:
       ko: 프롬프트 엔지니어링
     keywords: CoT · In-context learning
     summary:
-      en: "A lot can change without touching the weights. How the prompt is worded, whether the model is asked to reason step by step, and which examples it sees can all change what comes out. I'm interested in prompting because it is the cheapest way to get a model to do what we mean. In the MFDS translation project, I compared prompt templates and built a post-editing loop that catches broken outputs."
-      ko: "가중치를 건드리지 않고도 바뀌는 게 많습니다. 프롬프트를 어떻게 쓰는지, 단계별로 생각하게 하는지, 어떤 예시를 보여 주는지에 따라 결과가 달라집니다. 모델을 원하는 방향으로 움직이는 가장 값싼 방법이라서 프롬프트에 관심을 두고 있습니다. 식약처 번역 과제에서는 프롬프트 템플릿을 비교하고, 잘못된 출력을 잡아내는 후편집 루프를 만들었습니다."
+      en: "A lot can change without touching the weights. How the prompt is worded, whether the model is asked to reason step by step, and which examples it sees can all change what comes out. I'm interested in prompting because it is the cheapest way to get a model to do what we mean. In the MFDS translation project, we compared prompt templates and built a post-editing loop that catches broken outputs."
+      ko: "가중치를 건드리지 않고도 바뀌는 게 많습니다. 프롬프트를 어떻게 쓰는지, 단계별로 생각하게 하는지, 어떤 예시를 보여 주는지에 따라 결과가 달라집니다. 모델을 원하는 방향으로 움직이는 가장 값싼 방법이라서 프롬프트에 관심을 두고 있습니다. 식약처 번역 과제에서 저희 팀은 프롬프트 템플릿을 비교하고, 잘못된 출력을 잡아내는 후편집 루프를 만들었습니다."
     project_ref: translation
     more:
       en: Read about inference strategies for translation

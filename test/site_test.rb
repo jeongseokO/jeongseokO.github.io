@@ -415,3 +415,14 @@ class NewResearchPagesTest < Minitest::Test
     end
   end
 end
+
+# MFDS was team work, so it is described with "we".
+class TeamVoiceTest < Minitest::Test
+  def test_mfds_work_described_as_team
+    en = page("index.html").at(".pillar--prompting").text
+    refute_includes en, "I compared"
+    assert_includes en, "we compared"
+    ko = page("ko/index.html").at(".pillar--prompting").text
+    assert_includes ko, "저희 팀은"
+  end
+end
