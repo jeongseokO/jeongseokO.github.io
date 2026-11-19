@@ -19,7 +19,7 @@ Sampling several responses and keeping the majority answer, known as Self-Consis
 
 Self-Consistency samples N responses and returns the most frequent final answer. Counting answers requires exact string matches, so SC breaks down when equivalent answers are worded differently, as in code, summaries, or explanations.
 
-Two existing extensions handle long answers, but each gives something up. Universal Self-Consistency (USC) asks the LLM itself to judge which response is most consistent; the paper reports about 10% extra inference time and about 15% extra memory for this (Introduction). Weighted Unigram Consistency Score (WUCS) compares word overlap cheaply, but loses accuracy on short-answer tasks. Routing each query to a format-specific method is not a way out either: the paper finds that the question alone does not reliably predict whether the model will answer briefly or at length (Appendix K).
+There are two existing ways to handle long answers. Universal Self-Consistency (USC) asks the LLM itself to judge which response is most consistent, which the paper measures at about 10% extra inference time and about 15% extra memory (Introduction). Weighted Unigram Consistency Score (WUCS) is cheap because it only compares word overlap, but it does worse on short-answer tasks. One could try to pick a method per question based on the expected answer format, but the paper finds that the question alone does not reliably tell you whether the model will answer briefly or at length (Appendix K).
 </section>
 
 <section id="method" class="rsec" markdown="1">

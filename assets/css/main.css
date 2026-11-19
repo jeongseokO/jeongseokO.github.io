@@ -269,8 +269,6 @@ img, svg { max-width: 100%; height: auto; }
 .pillar__art { padding: 1rem 1rem .5rem; background: var(--surface); border-bottom: 1px solid var(--rule); }
 .pillar__art .il { display: block; width: 100%; height: auto; }
 .pillar__body { display: flex; flex-direction: column; gap: .55rem; padding: 1.15rem 1.25rem 1.3rem; flex: 1; }
-.pillar__role { color: var(--c); font-size: .78rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
-:root:lang(ko) .pillar__role { letter-spacing: .02em; }
 .pillar h3 { font-size: 1.15rem; font-weight: 700; }
 .pillar__summary { color: var(--ink-2); font-size: .92rem; line-height: 1.65; }
 .pillar__more { margin-top: auto; padding-top: .35rem; font-size: .88rem; font-weight: 600; color: var(--c); text-decoration: none; }

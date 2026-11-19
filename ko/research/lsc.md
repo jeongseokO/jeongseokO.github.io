@@ -19,7 +19,7 @@ description: "Latent Self-Consistency(AAAI 2026): 학습된 summary token 임베
 
 Self-Consistency는 응답 N개를 샘플링하고 가장 자주 나온 최종 답을 돌려줍니다. 답을 세려면 문자열이 정확히 일치해야 하므로, 코드나 요약, 설명처럼 같은 뜻을 다르게 표현하는 답에서는 SC가 동작하지 않습니다.
 
-긴 답을 다루는 기존 확장 방법이 두 가지 있지만, 각각 대가가 있습니다. Universal Self-Consistency(USC)는 LLM에게 어떤 응답이 가장 일관적인지 판단하게 하며, 논문에 따르면 추론 시간이 약 10%, 메모리가 약 15% 더 듭니다(Introduction). Weighted Unigram Consistency Score(WUCS)는 단어 겹침을 가볍게 비교하지만 짧은 답 과제에서 정확도가 떨어집니다. 질문마다 답 형식에 맞는 방법을 골라 쓰는 것도 해결책이 되지 못합니다. 논문은 질문만 보고는 모델이 짧게 답할지 길게 답할지 안정적으로 예측하기 어렵다는 것을 확인했습니다(Appendix K).
+긴 답을 다루는 기존 방법으로는 두 가지가 있습니다. Universal Self-Consistency(USC)는 LLM에게 어떤 응답이 가장 일관적인지 직접 판단하게 하는데, 논문에서 재 보니 추론 시간이 약 10%, 메모리가 약 15% 더 들었습니다(Introduction). Weighted Unigram Consistency Score(WUCS)는 단어가 얼마나 겹치는지만 보기 때문에 가볍지만, 짧은 답 과제에서는 정확도가 떨어집니다. 질문을 보고 답 형식에 맞는 방법을 골라 쓰면 되지 않을까 싶지만, 질문만으로는 모델이 짧게 답할지 길게 답할지 미리 알기 어렵다는 것이 논문의 결과입니다(Appendix K).
 </section>
 
 <section id="method" class="rsec" markdown="1">

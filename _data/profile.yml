@@ -61,27 +61,26 @@ education:
       ko: 졸업
 
 research_goal:
-  en: "My research goal is trustworthy AI: language models whose answers can be relied on, checked at low cost, and steered as intended. I work in three directions, and each supplies one part of that goal."
-  ko: "제 연구 목표는 신뢰할 수 있는 AI, 즉 답을 믿을 수 있고, 적은 비용으로 검증할 수 있으며, 의도한 대로 움직이는 언어 모델입니다. 이를 위해 세 방향을 연구하며, 각 방향이 이 목표의 한 부분을 맡습니다."
+  en: "The goal behind most of my work is a language model people can rely on. I don't think one technique gets us there. The model has to be cheap enough to check, its answers have to survive the check, and we need a way to tell it what we actually want. Each of the three areas below takes on one of these."
+  ko: "제 연구가 결국 향하는 곳은 사람들이 믿고 쓸 수 있는 언어 모델입니다. 한 가지 기법만으로 되는 일은 아니라고 생각합니다. 검증할 수 있을 만큼 모델이 가벼워야 하고, 검증해도 답이 흔들리지 않아야 하고, 우리가 원하는 바를 모델에게 제대로 전할 수도 있어야 합니다. 아래 세 분야가 이 조건을 하나씩 다룹니다."
 
 goal:
   title: Trustworthy AI
   summary:
-    en: LLMs that can be relied on, checked, and steered
-    ko: 믿을 수 있고, 검증 가능하며, 의도대로 움직이는 LLM
+    en: Language models people can rely on
+    ko: 믿고 쓸 수 있는 언어 모델
 
 # The three research directions. `id` also names the illustration in _includes/illus/.
+# `keywords` is the short line shown under each name in the overview diagram.
 pillars:
   - id: architecture
     title:
       en: LLM Architecture
       ko: LLM 아키텍처
-    role:
-      en: Efficient to run and to check
-      ko: 실행·검증 비용을 낮춤
+    keywords: Linear attention · Pruning
     summary:
-      en: Reducing the cost of LLM inference by changing the model itself. Linear and hybrid attention replace the quadratic cost of softmax attention, and structured pruning removes redundant layers, heads, and channels. Lower cost is what makes sampling several answers and checking them affordable.
-      ko: 모델 구조 자체를 바꿔 LLM 추론 비용을 줄입니다. Linear·hybrid attention은 softmax attention의 이차 비용을 줄이고, structured pruning은 불필요한 층, head, 채널을 제거합니다. 비용이 낮아야 여러 답을 샘플링해 검증하는 일이 현실적으로 가능해집니다.
+      en: "Two things make LLMs expensive to run: attention, whose cost grows quadratically with the length of the input, and the sheer size of the model. I look at linear and hybrid attention for the first, and at structured pruning, which removes whole layers or attention heads, for the second. A cheaper model also means we can afford to ask it the same question several times and compare the answers."
+      ko: "LLM을 돌리는 데 비용이 많이 드는 이유는 크게 두 가지입니다. 입력이 길어질수록 연산량이 제곱으로 늘어나는 attention, 그리고 모델 자체의 크기입니다. 앞의 문제는 linear·hybrid attention으로, 뒤의 문제는 층이나 attention head를 통째로 덜어내는 structured pruning으로 접근합니다. 모델이 가벼워지면 같은 질문을 여러 번 던져 답을 비교하는 일도 부담 없이 할 수 있습니다."
     topics:
       en: [Linear & hybrid attention, Structured pruning (depth / width)]
       ko: [선형·하이브리드 어텐션 (Linear & hybrid attention), 구조적 프루닝 (Structured pruning)]
@@ -92,12 +91,10 @@ pillars:
     title:
       en: Reliability
       ko: 응답 신뢰성
-    role:
-      en: Answers that agree and hold up
-      ko: 일관되고 사실에 맞는 답
+    keywords: Consistency · Hallucination
     summary:
-      en: Telling when an LLM's answers can be trusted. Self-consistency compares several sampled responses and keeps the answer they agree on, and hallucination mitigation detects and reduces content that is not grounded in fact. Latent Self-Consistency (AAAI 2026) makes this judgment inside the model's own representations.
-      ko: LLM의 답을 언제 믿을 수 있는지 판단합니다. Self-consistency는 여러 번 샘플링한 응답을 비교해 서로 합의하는 답을 고르고, 환각 완화는 사실에 근거하지 않은 내용을 찾아 줄입니다. Latent Self-Consistency(AAAI 2026)는 이 판단을 모델 내부 표현 안에서 수행합니다.
+      en: "Ask an LLM the same question a few times and the answers often differ. I study how to put that disagreement to use. Self-consistency keeps the answer most samples agree on, and the same signal can flag hallucinations, where the model states things that are not grounded in fact. In Latent Self-Consistency, the model compares its answers through its own hidden representations instead of matching strings."
+      ko: "같은 질문을 LLM에 몇 번 던지면 답이 자주 달라집니다. 저는 이 불일치를 쓸모 있게 만드는 방법을 연구합니다. Self-consistency는 여러 답 가운데 가장 많이 겹치는 답을 고르고, 같은 신호로 모델이 사실과 다른 내용을 지어내는 환각(hallucination)도 잡아낼 수 있습니다. Latent Self-Consistency에서는 답을 문자열로 맞춰 보는 대신 모델의 내부 표현으로 비교합니다."
     topics:
       en: [Self-consistency, Hallucination mitigation]
       ko: [자기 일관성 (Self-consistency), 환각 완화 (Hallucination mitigation)]
@@ -109,12 +106,10 @@ pillars:
     title:
       en: Prompt Engineering
       ko: 프롬프트 엔지니어링
-    role:
-      en: Behavior as intended
-      ko: 의도한 대로 동작
+    keywords: CoT · In-context learning
     summary:
-      en: Steering a model's behavior through its input instead of its weights. Prompt design, chain-of-thought reasoning, and in-context examples change what a model does without retraining it.
-      ko: 가중치 대신 입력을 통해 모델의 동작을 이끕니다. 프롬프트 설계, chain-of-thought 추론, in-context 예시는 재학습 없이 모델의 행동을 바꿉니다.
+      en: "A lot can change without touching the weights. How the prompt is worded, whether the model is asked to reason step by step, and which examples it sees can all change what comes out. I'm interested in prompting because it is the cheapest way to get a model to do what we mean."
+      ko: "가중치를 건드리지 않고도 바뀌는 게 많습니다. 프롬프트를 어떻게 쓰는지, 단계별로 생각하게 하는지, 어떤 예시를 보여 주는지에 따라 결과가 달라집니다. 모델을 원하는 방향으로 움직이는 가장 값싼 방법이라서 프롬프트에 관심을 두고 있습니다."
     topics:
       en: [Chain-of-thought prompting, In-context learning]
       ko: [사고 사슬 프롬프팅 (Chain-of-thought), 인컨텍스트 러닝 (In-context learning)]

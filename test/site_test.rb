@@ -272,3 +272,34 @@ class ResearchStructureTest < Minitest::Test
     end
   end
 end
+
+# Copy should read like a person wrote it: concrete topics instead of slogans,
+# no stock triads or translated-sounding connectors.
+class NaturalCopyTest < Minitest::Test
+  def test_diagram_shows_topics_not_slogans
+    HOMES.each_key do |path|
+      fig = page(path).at("#research svg.convergence").text
+      ["Linear attention · Pruning", "Consistency · Hallucination", "CoT · In-context learning"].each do |k|
+        assert_includes fig, k, path
+      end
+      ["Efficient to run and to check", "Answers that agree and hold up", "Behavior as intended",
+       "실행·검증 비용을 낮춤", "일관되고 사실에 맞는 답", "의도한 대로 동작"].each do |slogan|
+        refute_includes page(path).at("main").text, slogan, path
+      end
+    end
+  end
+
+  def test_no_stock_phrases
+    en = page("index.html").at("main").text
+    ["relied on, checked, and steered", "each supplies one part", "My research goal is trustworthy AI:", "My research asks"].each do |s|
+      refute_includes en, s
+    end
+    ko = page("ko/index.html").at("main").text
+    ["즉,", "이를 위해", "한 부분을 맡습니다", "믿을 수 있고, 검증 가능하며"].each { |s| refute_includes ko, s }
+    { "research/lsc/index.html" => ["each gives something up", "is not a way out either"],
+      "ko/research/lsc/index.html" => ["각각 대가가 있습니다", "해결책이 되지 못합니다"] }.each do |path, bad|
+      text = page(path).at("main").text
+      bad.each { |s| refute_includes text, s, path }
+    end
+  end
+end

@@ -9,8 +9,8 @@
   venue: AAAI 2026
   year: 2026
   summary:
-    en: Selects the most consistent of several sampled responses using learned summary-token embeddings. One method covers both short and long answers, and adds at most 0.9% to inference time.
-    ko: 여러 번 샘플링한 응답 가운데 가장 일관된 응답을 학습된 summary token 임베딩으로 고릅니다. 짧은 답과 긴 답을 하나의 방법으로 처리하며, 추론 시간은 최대 0.9%만 늘어납니다.
+    en: Picks the answer most of a model's sampled responses agree on by comparing learned summary-token embeddings rather than strings, so it also works for long, free-form answers. It adds at most 0.9% to inference time.
+    ko: 모델이 샘플링한 여러 응답을 문자열 대신 학습된 summary token 임베딩으로 비교해, 다수가 동의하는 답을 고릅니다. 그래서 길고 형식이 자유로운 답에도 쓸 수 있고, 추론 시간은 최대 0.9%만 늘어납니다.
   links:
     arxiv: https://arxiv.org/abs/2508.18395
     code: https://github.com/jeongseokO/LatentSC

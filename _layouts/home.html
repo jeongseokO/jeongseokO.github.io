@@ -47,7 +47,6 @@ layout: default
         {%- assign il_title = i.illus_title[page.lang] %}
         <div class="pillar__art">{% include illus/{{ i.id }}.svg title=il_title %}</div>
         <div class="pillar__body">
-          <p class="pillar__role">{{ i.role[page.lang] }}</p>
           <h3>{{ i.title[page.lang] }}</h3>
           <p class="pillar__summary">{{ i.summary[page.lang] }}</p>
           {%- assign topics = i.topics[page.lang] -%}
