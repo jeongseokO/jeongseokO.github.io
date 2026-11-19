@@ -263,6 +263,15 @@ class ResearchStructureTest < Minitest::Test
     end
   end
 
+  # The overview stays valid as papers are added, so it names no specific paper.
+  def test_diagram_names_no_paper
+    HOMES.each_key do |path|
+      page(path).css("#research svg.convergence").each do |fig|
+        refute_match(/LSC|Self-Consistency/, fig.text, path)
+      end
+    end
+  end
+
   def test_research_terms
     HOMES.each_key do |path|
       text = page(path).at("#research").text

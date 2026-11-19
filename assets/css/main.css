@@ -240,9 +240,6 @@ img, svg { max-width: 100%; height: auto; }
 .cv-flow--architecture { stroke: var(--c-architecture); }
 .cv-flow--reliability { stroke: var(--c-reliability); }
 .cv-flow--prompting { stroke: var(--c-prompting); }
-.cv-tie { fill: none; stroke: var(--ink-3); stroke-width: 1.2; stroke-dasharray: 3 3; }
-.cv-tag { fill: var(--bg); stroke: var(--ink-3); stroke-width: 1.2; }
-.cv-tag-t { fill: var(--ink); font-family: var(--sans); font-size: 12.5px; font-weight: 700; letter-spacing: .04em; }
 .cv-goal { fill: var(--ink); }
 .cv-goal-t { fill: var(--on-ink); font-family: var(--sans); font-size: 24px; font-weight: 750; letter-spacing: -.01em; }
 .cv-goal-s { fill: var(--on-ink); font-family: var(--sans); font-size: 14.5px; opacity: .82; }
