@@ -502,3 +502,23 @@ class EnglishLabelsOnKoreanPagesTest < Minitest::Test
     assert_includes page("ko/research/translation-inference/index.html").at(".eyebrow").text, "Prompt Engineering"
   end
 end
+
+class LscDoiTest < Minitest::Test
+  DOI_URL = "https://doi.org/10.1609/aaai.v40i38.40536"
+
+  def test_lsc_links_and_cites_the_aaai_doi
+    %w[index.html ko/index.html].each do |path|
+      pub = page(path).at("#pub-lsc2026")
+      assert_includes pub.css(".pub-links a").map { |a| a["href"] }, DOI_URL, path
+      bib = pub.at("pre").text
+      assert_includes bib, "doi       = {10.1609/aaai.v40i38.40536}", path
+      assert_includes bib, "volume    = {40}", path
+      assert_includes bib, "number    = {38}", path
+    end
+    %w[research/lsc/index.html ko/research/lsc/index.html].each do |path|
+      doc = page(path)
+      assert_includes doc.css(".research__head a").map { |a| a["href"] }, DOI_URL, path
+      assert_includes doc.at("#citation pre").text, "10.1609/aaai.v40i38.40536", path
+    end
+  end
+end

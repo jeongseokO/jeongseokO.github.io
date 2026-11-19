@@ -23,7 +23,8 @@ layout: default
       <span class="research__affil"> · {{ site.data.profile.affiliation[page.lang] }}</span>
     </p>
     <div class="pub-links">
-      {%- if pub.links.arxiv %}<a class="chip" href="{{ pub.links.arxiv }}">{{ t.link_paper }}</a>{% endif %}
+      {%- if pub.links.doi %}<a class="chip" href="{{ pub.links.doi }}">DOI</a>{% endif %}
+    {%- if pub.links.arxiv %}<a class="chip" href="{{ pub.links.arxiv }}">{{ t.link_paper }}</a>{% endif %}
       {%- if pub.links.code %}<a class="chip" href="{{ pub.links.code }}">{{ t.link_code }}</a>{% endif %}
       {%- if pub.links.data %}<a class="chip" href="{{ pub.links.data }}">{{ t.link_data }}</a>{% endif %}
       <a class="chip" href="#citation">BibTeX</a>

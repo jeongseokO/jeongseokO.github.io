@@ -19,6 +19,7 @@
   <p class="pub-summary">{{ pub.summary[page.lang] }}</p>
   {%- endif %}
   <div class="pub-links">
+    {%- if pub.links.doi %}<a class="chip" href="{{ pub.links.doi }}">DOI</a>{% endif %}
     {%- if pub.links.arxiv %}<a class="chip" href="{{ pub.links.arxiv }}">{{ t.link_paper }}</a>{% endif %}
     {%- if pub.links.code %}<a class="chip" href="{{ pub.links.code }}">{{ t.link_code }}</a>{% endif %}
     {%- if pub.links.data %}<a class="chip" href="{{ pub.links.data }}">{{ t.link_data }}</a>{% endif %}
