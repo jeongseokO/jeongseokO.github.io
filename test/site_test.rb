@@ -460,3 +460,21 @@ class ProfilePhotoTest < Minitest::Test
     assert File.exist?(File.join(SITE, "assets/img/profile.jpg"))
   end
 end
+
+# Clicking the email copies the address; mailto: stays as the no-JS fallback.
+class CopyEmailMarkupTest < Minitest::Test
+  def test_email_links_are_copy_buttons_with_mailto_fallback
+    { "index.html" => "Copied!", "ko/index.html" => "복사됨" }.each do |path, copied|
+      doc = page(path)
+      links = doc.css("a.js-copy-email")
+      assert_equal 2, links.size, "#{path}: hero + footer"
+      links.each do |a|
+        assert_equal "mailto:luke0112@snu.ac.kr", a["href"], path
+        assert_equal "luke0112@snu.ac.kr", a["data-email"], path
+        assert_equal copied, a["data-copied"], path
+        assert_includes a["title"].to_s, "luke0112@snu.ac.kr", path
+      end
+      refute_nil doc.at("#copy-status[aria-live=polite]"), "#{path}: live region"
+    end
+  end
+end

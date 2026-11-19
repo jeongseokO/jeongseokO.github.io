@@ -16,6 +16,9 @@ en:
   sec_projects: Projects
   advised_by: Advised by
   email: Email
+  email_copied: Copied!
+  email_copy_title: "Click to copy"
+  email_copied_status: Email address copied
   corresponding: Corresponding author
   link_paper: arXiv
   link_code: Code
@@ -61,6 +64,9 @@ ko:
   sec_projects: 프로젝트
   advised_by: 지도교수
   email: 이메일
+  email_copied: 복사됨
+  email_copy_title: "클릭하면 복사됩니다"
+  email_copied_status: 이메일 주소를 복사했습니다
   corresponding: 교신저자
   link_paper: arXiv
   link_code: 코드

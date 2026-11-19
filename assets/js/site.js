@@ -20,6 +20,30 @@
     media.addEventListener && media.addEventListener('change', sync);
   }
 
+  // Email links copy the address instead of opening a mail app. Without the
+  // Clipboard API (or if copying fails) the mailto: link works as before.
+  if (navigator.clipboard) {
+    var status = document.getElementById('copy-status');
+    document.querySelectorAll('.js-copy-email').forEach(function (link) {
+      var label = link.textContent;
+      var timer;
+      link.addEventListener('click', function (event) {
+        event.preventDefault();
+        navigator.clipboard.writeText(link.getAttribute('data-email')).then(function () {
+          link.textContent = link.getAttribute('data-copied');
+          link.classList.add('is-copied');
+          if (status) status.textContent = status.getAttribute('data-message');
+          clearTimeout(timer);
+          timer = setTimeout(function () {
+            link.textContent = label;
+            link.classList.remove('is-copied');
+            if (status) status.textContent = '';
+          }, 1600);
+        }, function () { window.location.href = link.href; });
+      });
+    });
+  }
+
   if (navigator.clipboard) {
     document.querySelectorAll('.copy-btn').forEach(function (btn) {
       var label = btn.textContent;

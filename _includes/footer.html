@@ -1,7 +1,7 @@
   <footer class="site-footer">
    <div class="site-footer__inner">
     <ul class="footer-links">
-      <li><a href="mailto:{{ site.data.profile.email }}">{{ site.data.profile.email }}</a></li>
+      <li><a class="js-copy-email" href="mailto:{{ site.data.profile.email }}" data-email="{{ site.data.profile.email }}" data-copied="{{ t.email_copied }}" title="{{ t.email_copy_title }}: {{ site.data.profile.email }}">{{ site.data.profile.email }}</a></li>
       {%- for l in site.data.profile.links %}
       <li><a href="{{ l.url }}">{{ l.label }}</a></li>
       {%- endfor %}

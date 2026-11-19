@@ -17,6 +17,7 @@
 {{ content }}
   </main>
 {% include footer.html %}
+  <p id="copy-status" class="sr-only" aria-live="polite" data-message="{{ t.email_copied_status }}"></p>
   <script src="{{ '/assets/js/site.js' | relative_url }}" defer></script>
 </body>
 </html>

@@ -16,7 +16,7 @@ layout: default
       <p class="hero__role">{% if page.lang == "ko" %}{{ p.affiliation.ko }} {{ p.position.ko }}{% else %}{{ p.position[page.lang] }} · {{ p.affiliation[page.lang] }}{% endif %}</p>
       <p class="hero__advisor">{{ t.advised_by }} <a href="{{ p.advisor.url }}">{{ p.advisor.name[page.lang] }}</a> · <a href="{{ p.lab.url }}">{{ p.lab.name }}</a></p>
       <ul class="hero__links">
-        <li><a href="mailto:{{ p.email }}">{{ t.email }}</a></li>
+        <li><a class="js-copy-email" href="mailto:{{ p.email }}" data-email="{{ p.email }}" data-copied="{{ t.email_copied }}" title="{{ t.email_copy_title }}: {{ p.email }}">{{ t.email }}</a></li>
         {%- for l in p.links %}
         <li><a href="{{ l.url }}">{{ l.label }}</a></li>
         {%- endfor %}
