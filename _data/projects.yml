@@ -1,0 +1,17 @@
+# Projects outside the publication list, newest first. Both language versions render this list.
+- id: mfds
+  org:
+    en: SKI-ML Lab × Ministry of Food and Drug Safety (MFDS), Korea
+    ko: SKI-ML 연구실 × 식품의약품안전처
+  role:
+    en: Head researcher
+    ko: head 연구원
+  team:
+    en: 'PI: Prof. Howard Lee (<a href="https://ccadd.snu.ac.kr/">CCADD</a>, SNU) · Co-PI: Prof. Jay-Yoon Lee (<a href="https://www.skiml.snu.ac.kr/">SKI-ML Lab</a>)'
+    ko: '연구책임자 이형기 교수 (서울대 <a href="https://ccadd.snu.ac.kr/">CCADD</a>) · 공동연구책임자 이재윤 교수 (<a href="https://www.skiml.snu.ac.kr/">SKI-ML 연구실</a>)'
+  title:
+    en: Korean–English translation of regulatory documents
+    ko: 식약처 문서 한↔영 번역
+  summary:
+    en: "We built a Korean↔English translation model for documents of Korea's Ministry of Food and Drug Safety (MFDS), fine-tuning VaivGem 9B on in-domain sentence pairs. Growing the training data from 17K to 514K pairs raised Korean→English BLEU from 46.4 to 55.5. We also trained a quality-estimation model for these documents; its judgments matched human preferences 72.5% of the time, up from 68.2% before domain training."
+    ko: "식품의약품안전처 문서를 한↔영으로 번역하는 모델을 만들었습니다. VaivGem 9B를 식약처 문장쌍으로 미세조정했고, 학습 데이터를 1.7만 쌍에서 51만 쌍으로 늘리자 한→영 BLEU가 46.4에서 55.5로 올랐습니다. 식약처 문서에 맞춘 번역 품질 평가(QE) 모델도 학습했는데, 사람이 더 낫다고 고른 번역과 판단이 일치하는 비율이 도메인 학습 전 68.2%에서 72.5%로 높아졌습니다."

@@ -53,9 +53,8 @@ HOMES = { "index.html" => "en", "ko/index.html" => "ko" }.freeze
 class HomeTest < Minitest::Test
   def test_publication_in_both_languages
     HOMES.each do |path, lang|
-      pubs = page(path).css("article.pub")
-      assert_equal 1, pubs.size, path
-      pub = pubs.first
+      pub = page(path).at("article#pub-lsc2026")
+      refute_nil pub, path
       assert_equal PAPER_TITLE, pub.at(".pub-title").text.strip, path
       assert_equal "AAAI 2026", pub.at(".pub-venue").text.strip, path
       assert_equal "Jungsuk Oh", pub.at(".pub-authors strong.me").text.strip, path
@@ -309,6 +308,55 @@ class NaturalCopyTest < Minitest::Test
       "ko/research/lsc/index.html" => ["각각 대가가 있습니다", "해결책이 되지 못합니다"] }.each do |path, bad|
       text = page(path).at("main").text
       bad.each { |s| refute_includes text, s, path }
+    end
+  end
+end
+
+SPEED_TITLE = "Shallow Prefill, Deep Decoding: Efficient Long-Context Inference via Layer-Asymmetric KV Visibility"
+
+class PreprintAndProjectTest < Minitest::Test
+  def test_speed_preprint_listed_first_in_both_languages
+    HOMES.each do |path, _lang|
+      doc = page(path)
+      ids = doc.css("#publications article.pub").map { |a| a["id"] }
+      assert_equal %w[pub-speed2026 pub-lsc2026], ids, path
+      pub = doc.at("#pub-speed2026")
+      assert_equal SPEED_TITLE, pub.at(".pub-title").text.strip, path
+      assert_equal "Preprint", pub.at(".pub-venue").text.strip, path
+      assert_equal "Jungsuk Oh", pub.at(".pub-authors strong.me").text.strip, path
+      %w[Hyeseo\ Jeon Hyunjune\ Ji Kyongmin\ Kong Jay-Yoon\ Lee].each do |name|
+        assert_includes pub.at(".pub-authors").text, name.delete("\\"), path
+      end
+      assert_includes pub.css("a").map { |a| a["href"] }, "https://arxiv.org/abs/2605.06105", path
+      assert_empty pub.css(".chip--accent"), "#{path}: SPEED has no project page"
+      assert_includes pub.at("pre").text, "@article{oh2026shallow", path
+    end
+  end
+
+  def test_corresponding_author_note_once
+    HOMES.each_key do |path|
+      assert_equal 1, page(path).css("#publications .pub-note").size, path
+    end
+  end
+
+  def test_mfds_project_in_both_languages
+    { "index.html" => "Ministry of Food and Drug Safety", "ko/index.html" => "식품의약품안전처" }.each do |path, org|
+      projects = page(path).css("#projects .project")
+      assert_equal 1, projects.size, path
+      text = projects.first.text
+      assert_includes text, org, path
+      %w[46.4 55.5 68.2% 72.5%].each { |n| assert_includes text, n, path }
+    end
+  end
+
+  def test_mfds_project_team_and_role
+    { "index.html" => ["SKI-ML Lab", "Head researcher", "PI", "Howard Lee", "Co-PI", "Jay-Yoon Lee"],
+      "ko/index.html" => ["SKI-ML", "head 연구원", "연구책임자", "이형기", "공동연구책임자", "이재윤"] }.each do |path, words|
+      project = page(path).at("#project-mfds")
+      words.each { |w| assert_includes project.text, w, path }
+      hrefs = project.css("a").map { |a| a["href"] }
+      assert_includes hrefs, "https://ccadd.snu.ac.kr/", path
+      assert_includes hrefs, "https://www.skiml.snu.ac.kr/", path
     end
   end
 end

@@ -72,6 +72,23 @@ layout: default
     {%- for pub in site.data.publications %}
     {% include publication.html pub=pub %}
     {%- endfor %}
+    <p class="pub-note"><sup>*</sup> {{ t.corresponding }}</p>
+  </div>
+</section>
+
+<section class="section" id="projects" aria-labelledby="h-projects">
+  <div class="container">
+    <h2 class="section__title" id="h-projects">{{ t.sec_projects }}</h2>
+    <ul class="projects">
+      {%- for pr in site.data.projects %}
+      <li class="project" id="project-{{ pr.id }}">
+        <p class="project__org">{{ pr.org[page.lang] }}</p>
+        <h3 class="project__title">{{ pr.title[page.lang] }}</h3>
+        <p class="project__meta"><span class="project__role">{{ pr.role[page.lang] }}</span> · {{ pr.team[page.lang] }}</p>
+        <p class="project__summary">{{ pr.summary[page.lang] }}</p>
+      </li>
+      {%- endfor %}
+    </ul>
   </div>
 </section>
 

@@ -10,6 +10,7 @@ Personal research site of Jungsuk Oh (오정석), built with Jekyll and served b
 | Research goal and the three research directions (`research_goal`, `goal`, `pillars`) | `_data/profile.yml` |
 | Research illustrations and the convergence diagram | `_includes/illus/*.svg`, `_includes/convergence.html` |
 | Publications (shared by both languages) | `_data/publications.yml` |
+| Projects (shared by both languages) | `_data/projects.yml` |
 | Menu and button labels | `_data/i18n.yml` |
 | Bio | `index.md` (English), `ko/index.md` (Korean) |
 | LSC research page | `research/lsc.md`, `ko/research/lsc.md`, table numbers in `_data/lsc_results.yml` |

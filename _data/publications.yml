@@ -1,4 +1,31 @@
 # One entry per paper, newest first. Both language versions render this list.
+# Set `preprint: true` for work that is not yet peer reviewed.
+- id: speed2026
+  title: "Shallow Prefill, Deep Decoding: Efficient Long-Context Inference via Layer-Asymmetric KV Visibility"
+  authors:
+    - name: Jungsuk Oh
+      me: true
+    - name: Hyeseo Jeon
+    - name: Hyunjune Ji
+    - name: Kyongmin Kong
+    - name: Jay-Yoon Lee
+      corresponding: true
+  venue: Preprint
+  preprint: true
+  year: 2026
+  summary:
+    en: "Long prompts don't need to be kept at every layer. SPEED processes the prompt only in the lower layers and lets generated tokens use the full depth. On Llama-3.1-8B, giving the prompt 75% of the layers kept the average benchmark score at 51.2 (51.4 for the full model), with a 33% faster first token, 22% faster decoding per token, and 25% less KV memory at 128K context."
+    ko: "긴 프롬프트를 모든 층에 남겨 둘 필요는 없습니다. SPEED는 프롬프트를 하위층에서만 처리하고, 생성되는 토큰은 모든 층을 거치게 합니다. Llama-3.1-8B에서 프롬프트에 전체 층의 75%만 쓰고도 평균 벤치마크 점수는 51.2(전체 층 사용 시 51.4)를 유지했고, 128K 문맥에서 첫 토큰은 33%, 토큰당 디코딩은 22% 빨라졌으며 KV 메모리는 25% 줄었습니다."
+  links:
+    arxiv: https://arxiv.org/abs/2605.06105
+  bibtex: |-
+    @article{oh2026shallow,
+      title   = {Shallow Prefill, Deep Decoding: Efficient Long-Context Inference via Layer-Asymmetric KV Visibility},
+      author  = {Oh, Jungsuk and Jeon, Hyeseo and Ji, Hyunjune and Kong, Kyongmin and Lee, Jay-Yoon},
+      journal = {arXiv preprint arXiv:2605.06105},
+      year    = {2026}
+    }
+
 - id: lsc2026
   title: Latent Self-Consistency for Reliable Majority-Set Selection in Short- and Long-Answer Reasoning
   authors:

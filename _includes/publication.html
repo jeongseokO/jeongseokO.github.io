@@ -6,7 +6,7 @@
   {%- assign project = site.pages | where: "ref", pub.project_ref | where: "lang", page.lang | first -%}
 {%- endif -%}
 <article class="pub" id="pub-{{ pub.id }}">
-  <p class="pub-venue">{{ pub.venue }}</p>
+  <p class="pub-venue{% if pub.preprint %} pub-venue--preprint{% endif %}">{{ pub.venue }}</p>
   <h3 class="pub-title">{% if project %}<a href="{{ project.url | relative_url }}">{{ pub.title }}</a>{% else %}{{ pub.title }}{% endif %}</h3>
   <p class="pub-authors">
     {%- for a in pub.authors -%}
@@ -33,5 +33,4 @@
     </div>
   </details>
   {%- endif %}
-  <p class="pub-note"><sup>*</sup> {{ t.corresponding }}</p>
 </article>
