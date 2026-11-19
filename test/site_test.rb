@@ -446,3 +446,17 @@ class InterestsWordingTest < Minitest::Test
     assert_includes ko, "관심이 있습니다"
   end
 end
+
+class ProfilePhotoTest < Minitest::Test
+  def test_hero_shows_profile_photo
+    { "index.html" => "Jungsuk Oh", "ko/index.html" => "오정석" }.each do |path, name|
+      doc = page(path)
+      img = doc.at(".hero img.hero__photo")
+      refute_nil img, path
+      assert_equal "/assets/img/profile.jpg", img["src"], path
+      assert_equal name, img["alt"], path
+      assert_nil doc.at(".hero__photo--monogram"), "#{path}: monogram replaced"
+    end
+    assert File.exist?(File.join(SITE, "assets/img/profile.jpg"))
+  end
+end

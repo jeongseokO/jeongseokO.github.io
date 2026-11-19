@@ -5,7 +5,7 @@ name:
 monogram: JO
 # Set to an image path (e.g. /assets/img/profile.jpg) to replace the monogram.
 # Use a square image, at least 320 x 320 px.
-photo:
+photo: /assets/img/profile.jpg
 position:
   en: Ph.D. Student
   ko: 박사과정
