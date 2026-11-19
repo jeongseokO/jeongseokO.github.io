@@ -1,0 +1,42 @@
+{%- assign p = site.data.profile -%}
+<svg class="convergence convergence--wide" viewBox="0 0 960 330" role="img" aria-labelledby="cv-w-{{ page.lang }}">
+<title id="cv-w-{{ page.lang }}">{{ t.diagram_label }}</title>
+{%- for pl in p.pillars -%}
+{%- assign i = forloop.index0 -%}
+{%- case i -%}{%- when 0 -%}{%- assign bx = 40 -%}{%- when 1 -%}{%- assign bx = 350 -%}{%- else -%}{%- assign bx = 660 -%}{%- endcase -%}
+<g class="cv-pillar cv-{{ pl.id }}">
+<rect class="cv-box" x="{{ bx }}" y="16" width="260" height="96" rx="14"/>
+<rect class="cv-bar" x="{{ bx | plus: 20 }}" y="16" width="44" height="4" rx="2"/>
+<text class="cv-name" x="{{ bx | plus: 20 }}" y="58">{{ pl.title.en }}</text>
+<text class="cv-role" x="{{ bx | plus: 20 }}" y="86">{{ pl.role[page.lang] }}</text>
+</g>
+{%- endfor -%}
+<text class="cv-plus" x="325" y="72" text-anchor="middle">+</text><text class="cv-plus" x="635" y="72" text-anchor="middle">+</text>
+<path class="cv-flow cv-flow--architecture" d="M170 112C170 172 420 168 420 214"/><path class="cv-head cv-head--architecture" d="M413 210l7 12 7-12z"/>
+<path class="cv-flow cv-flow--reliability" d="M480 112V214"/><path class="cv-head cv-head--reliability" d="M473 210l7 12 7-12z"/>
+<path class="cv-flow cv-flow--prompting" d="M790 112C790 172 540 168 540 214"/><path class="cv-head cv-head--prompting" d="M533 210l7 12 7-12z"/>
+
+<path class="cv-tie" d="M290 112L310 124M360 112L340 124"/>
+<rect class="cv-tag" x="297" y="122" width="56" height="24" rx="12"/><text class="cv-tag-t" x="325" y="138.5" text-anchor="middle">LSC</text>
+<rect class="cv-goal" x="270" y="226" width="420" height="88" rx="16"/>
+<path class="cv-shield" d="M318 248l16 6v12c0 10-7 17-16 21-9-4-16-11-16-21v-12z"/><path class="cv-shield-check" d="M311 267l5 5 9-10"/>
+<text class="cv-goal-t" x="500" y="264" text-anchor="middle">{{ p.goal.title }}</text>
+<text class="cv-goal-s" x="500" y="292" text-anchor="middle">{{ p.goal.summary[page.lang] }}</text>
+</svg>
+<svg class="convergence convergence--tall" viewBox="0 0 340 470" role="img" aria-labelledby="cv-t-{{ page.lang }}">
+<title id="cv-t-{{ page.lang }}">{{ t.diagram_label }}</title>
+{%- for pl in p.pillars -%}
+{%- assign by = forloop.index0 | times: 104 | plus: 8 -%}
+<g class="cv-pillar cv-{{ pl.id }}">
+<rect class="cv-box" x="10" y="{{ by }}" width="320" height="78" rx="14"/>
+<rect class="cv-bar" x="28" y="{{ by }}" width="40" height="4" rx="2"/>
+<text class="cv-name" x="28" y="{{ by | plus: 36 }}">{{ pl.title.en }}</text>
+<text class="cv-role" x="28" y="{{ by | plus: 60 }}">{{ pl.role[page.lang] }}</text>
+</g>
+{%- unless forloop.last -%}<text class="cv-plus" x="170" y="{{ by | plus: 100 }}" text-anchor="middle">+</text>{%- endunless -%}
+{%- endfor -%}
+<path class="cv-flow cv-flow--reliability" d="M170 296V326"/><path class="cv-head cv-head--reliability" d="M163 322l7 12 7-12z"/>
+<rect class="cv-goal" x="10" y="342" width="320" height="96" rx="16"/>
+<text class="cv-goal-t" x="170" y="384" text-anchor="middle">{{ p.goal.title }}</text>
+<text class="cv-goal-s cv-goal-s--sm" x="170" y="412" text-anchor="middle">{{ p.goal.summary[page.lang] }}</text>
+</svg>

@@ -6,7 +6,9 @@ Personal research site of Jungsuk Oh (오정석), built with Jekyll and served b
 
 | What | Where |
 |---|---|
-| Name, position, links, education, research interests | `_data/profile.yml` |
+| Name, position, links, education | `_data/profile.yml` |
+| Research goal and the three research directions (`research_goal`, `goal`, `pillars`) | `_data/profile.yml` |
+| Research illustrations and the convergence diagram | `_includes/illus/*.svg`, `_includes/convergence.html` |
 | Publications (shared by both languages) | `_data/publications.yml` |
 | Menu and button labels | `_data/i18n.yml` |
 | Bio | `index.md` (English), `ko/index.md` (Korean) |

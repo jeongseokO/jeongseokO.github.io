@@ -9,7 +9,9 @@ en:
   skip: Skip to content
   updated: Last updated
   sec_about: About
-  sec_research: Research Interests
+  sec_research: Research
+  read_lsc: Read about Latent Self-Consistency
+  diagram_label: How the three research directions combine into trustworthy AI
   sec_education: Education
   sec_publications: Publications
   advised_by: Advised by
@@ -44,7 +46,9 @@ ko:
   skip: 본문으로 건너뛰기
   updated: 최종 수정
   sec_about: 소개
-  sec_research: 연구 분야
+  sec_research: 연구
+  read_lsc: Latent Self-Consistency 자세히 보기
+  diagram_label: 세 연구 방향이 모여 신뢰할 수 있는 AI가 되는 구조
   sec_education: 학력
   sec_publications: 논문
   advised_by: 지도교수

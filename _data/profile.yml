@@ -4,6 +4,7 @@ name:
   ko: 오정석
 monogram: JO
 # Set to an image path (e.g. /assets/img/profile.jpg) to replace the monogram.
+# Use a square image, at least 320 x 320 px.
 photo:
 position:
   en: Ph.D. Student
@@ -59,34 +60,64 @@ education:
       en: Graduated
       ko: 졸업
 
-interests:
-  - id: efficient-llm
+research_goal:
+  en: "My research goal is trustworthy AI: language models whose answers can be relied on, checked at low cost, and steered as intended. I work in three directions, and each supplies one part of that goal."
+  ko: "제 연구 목표는 신뢰할 수 있는 AI, 즉 답을 믿을 수 있고, 적은 비용으로 검증할 수 있으며, 의도한 대로 움직이는 언어 모델입니다. 이를 위해 세 방향을 연구하며, 각 방향이 이 목표의 한 부분을 맡습니다."
+
+goal:
+  title: Trustworthy AI
+  summary:
+    en: LLMs that can be relied on, checked, and steered
+    ko: 믿을 수 있고, 검증 가능하며, 의도대로 움직이는 LLM
+
+# The three research directions. `id` also names the illustration in _includes/illus/.
+pillars:
+  - id: architecture
     title:
-      en: Efficient LLM
-      ko: 효율적인 LLM
+      en: LLM Architecture
+      ko: LLM 아키텍처
+    role:
+      en: Efficient to run and to check
+      ko: 실행·검증 비용을 낮춤
     summary:
-      en: Cutting the compute and memory that LLM inference needs by changing how attention and model architectures work.
-      ko: 어텐션과 모델 구조를 바꿔 LLM 추론에 드는 연산량과 메모리를 줄이는 연구입니다.
+      en: Reducing the cost of LLM inference by changing the model itself. Linear and hybrid attention replace the quadratic cost of softmax attention, and structured pruning removes redundant layers, heads, and channels. Lower cost is what makes sampling several answers and checking them affordable.
+      ko: 모델 구조 자체를 바꿔 LLM 추론 비용을 줄입니다. Linear·hybrid attention은 softmax attention의 이차 비용을 줄이고, structured pruning은 불필요한 층, head, 채널을 제거합니다. 비용이 낮아야 여러 답을 샘플링해 검증하는 일이 현실적으로 가능해집니다.
     topics:
-      en: [Linear attention, Architecture pruning]
-      ko: [선형 어텐션 (Linear attention), 구조 프루닝 (Architecture pruning)]
-  - id: trustworthy-ai
+      en: [Linear & hybrid attention, Structured pruning (depth / width)]
+      ko: [선형·하이브리드 어텐션 (Linear & hybrid attention), 구조적 프루닝 (Structured pruning)]
+    illus_title:
+      en: "A Transformer layer stack with two pruned layers, and causal softmax attention (quadratic) next to linear attention (one shared state)"
+      ko: "두 층이 제거된 Transformer 층 구조, 그리고 이차 비용의 causal softmax attention과 상태 하나를 공유하는 linear attention 비교"
+  - id: reliability
     title:
-      en: Trustworthy AI
-      ko: 신뢰할 수 있는 AI
+      en: Reliability
+      ko: 응답 신뢰성
+    role:
+      en: Answers that agree and hold up
+      ko: 일관되고 사실에 맞는 답
     summary:
-      en: Making model outputs consistent across samples and grounded in fact.
-      ko: 모델 출력이 샘플마다 일관되고 사실에 근거하도록 만드는 연구입니다.
+      en: Telling when an LLM's answers can be trusted. Self-consistency compares several sampled responses and keeps the answer they agree on, and hallucination mitigation detects and reduces content that is not grounded in fact. Latent Self-Consistency (AAAI 2026) makes this judgment inside the model's own representations.
+      ko: LLM의 답을 언제 믿을 수 있는지 판단합니다. Self-consistency는 여러 번 샘플링한 응답을 비교해 서로 합의하는 답을 고르고, 환각 완화는 사실에 근거하지 않은 내용을 찾아 줄입니다. Latent Self-Consistency(AAAI 2026)는 이 판단을 모델 내부 표현 안에서 수행합니다.
     topics:
-      en: [Consistency, Mitigating hallucination]
-      ko: [일관성 (Consistency), 환각 완화 (Mitigating hallucination)]
-  - id: prompt-engineering
+      en: [Self-consistency, Hallucination mitigation]
+      ko: [자기 일관성 (Self-consistency), 환각 완화 (Hallucination mitigation)]
+    project_ref: lsc
+    illus_title:
+      en: "Five sampled responses: four agree on answer A and become the selected answer, one outlier answers B"
+      ko: "샘플링한 응답 다섯 개 가운데 네 개가 답 A에 합의해 선택되고, 하나는 B로 답한 동떨어진 응답"
+  - id: prompting
     title:
       en: Prompt Engineering
       ko: 프롬프트 엔지니어링
+    role:
+      en: Behavior as intended
+      ko: 의도한 대로 동작
     summary:
-      en: Designing prompts that steer models toward the intended behavior.
-      ko: 모델이 의도한 대로 동작하도록 프롬프트를 설계하는 연구입니다.
+      en: Steering a model's behavior through its input instead of its weights. Prompt design, chain-of-thought reasoning, and in-context examples change what a model does without retraining it.
+      ko: 가중치 대신 입력을 통해 모델의 동작을 이끕니다. 프롬프트 설계, chain-of-thought 추론, in-context 예시는 재학습 없이 모델의 행동을 바꿉니다.
     topics:
-      en: []
-      ko: []
+      en: [Chain-of-thought prompting, In-context learning]
+      ko: [사고 사슬 프롬프팅 (Chain-of-thought), 인컨텍스트 러닝 (In-context learning)]
+    illus_title:
+      en: "A prompt with a highlighted instruction goes into the LLM, which then follows the intended path among several possible outputs"
+      ko: "강조된 지시가 담긴 프롬프트가 LLM에 들어가고, 여러 가능한 출력 가운데 의도한 경로를 따르는 모습"

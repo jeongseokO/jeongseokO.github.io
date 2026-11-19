@@ -4,9 +4,9 @@ layout: default
 {%- include vars.html -%}
 {%- assign p = site.data.profile -%}
 <section class="hero" aria-labelledby="name">
-  <div class="hero__inner">
+  <div class="container hero__inner">
     {%- if p.photo %}
-    <img class="hero__photo" src="{{ p.photo | relative_url }}" alt="{{ p.name[page.lang] }}" width="168" height="168">
+    <img class="hero__photo" src="{{ p.photo | relative_url }}" alt="{{ p.name[page.lang] }}" width="152" height="152">
     {%- else %}
     <div class="hero__photo hero__photo--monogram" aria-hidden="true">{{ p.monogram }}</div>
     {%- endif %}
@@ -26,33 +26,59 @@ layout: default
 </section>
 
 <section class="section" id="about" aria-labelledby="h-about">
-  <h2 class="section__label" id="h-about">{{ t.sec_about }}</h2>
-  <div class="section__body prose">
+  <div class="container">
+    <h2 class="section__title" id="h-about">{{ t.sec_about }}</h2>
+    <div class="prose">
 {{ content }}
+    </div>
   </div>
 </section>
 
 <section class="section" id="research" aria-labelledby="h-research">
-  <h2 class="section__label" id="h-research">{{ t.sec_research }}</h2>
-  <div class="section__body">
-    <ul class="interests">
-      {%- for i in p.interests %}
-      <li class="interest interest--{{ i.id }}">
-        <h3>{{ i.title[page.lang] }}</h3>
-        <p>{{ i.summary[page.lang] }}</p>
-        {%- assign topics = i.topics[page.lang] -%}
-        {%- if topics.size > 0 %}
-        <ul class="tags">{% for topic in topics %}<li>{{ topic }}</li>{% endfor %}</ul>
-        {%- endif %}
+  <div class="container">
+    <h2 class="section__title" id="h-research">{{ t.sec_research }}</h2>
+    <p class="section__lead">{{ p.research_goal[page.lang] }}</p>
+    <figure class="convergence-figure">
+      {% include convergence.html %}
+    </figure>
+    <ul class="pillars">
+      {%- for i in p.pillars %}
+      <li class="pillar pillar--{{ i.id }}">
+        {%- assign il_title = i.illus_title[page.lang] %}
+        <div class="pillar__art">{% include illus/{{ i.id }}.svg title=il_title %}</div>
+        <div class="pillar__body">
+          <p class="pillar__role">{{ i.role[page.lang] }}</p>
+          <h3>{{ i.title[page.lang] }}</h3>
+          <p class="pillar__summary">{{ i.summary[page.lang] }}</p>
+          {%- assign topics = i.topics[page.lang] -%}
+          {%- if topics.size > 0 %}
+          <ul class="tags">{% for topic in topics %}<li>{{ topic }}</li>{% endfor %}</ul>
+          {%- endif %}
+          {%- if i.project_ref -%}
+          {%- assign proj = site.pages | where: "ref", i.project_ref | where: "lang", page.lang | first -%}
+          {%- if proj %}
+          <a class="pillar__more" href="{{ proj.url | relative_url }}">{{ t.read_lsc }} →</a>
+          {%- endif -%}
+          {%- endif %}
+        </div>
       </li>
       {%- endfor %}
     </ul>
   </div>
 </section>
 
+<section class="section" id="publications" aria-labelledby="h-publications">
+  <div class="container">
+    <h2 class="section__title" id="h-publications">{{ t.sec_publications }}</h2>
+    {%- for pub in site.data.publications %}
+    {% include publication.html pub=pub %}
+    {%- endfor %}
+  </div>
+</section>
+
 <section class="section" id="education" aria-labelledby="h-education">
-  <h2 class="section__label" id="h-education">{{ t.sec_education }}</h2>
-  <div class="section__body">
+  <div class="container">
+    <h2 class="section__title" id="h-education">{{ t.sec_education }}</h2>
     <ol class="timeline">
       {%- for e in p.education %}
       <li class="edu">
@@ -62,14 +88,5 @@ layout: default
       </li>
       {%- endfor %}
     </ol>
-  </div>
-</section>
-
-<section class="section" id="publications" aria-labelledby="h-publications">
-  <h2 class="section__label" id="h-publications">{{ t.sec_publications }}</h2>
-  <div class="section__body">
-    {%- for pub in site.data.publications %}
-    {% include publication.html pub=pub %}
-    {%- endfor %}
   </div>
 </section>

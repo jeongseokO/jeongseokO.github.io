@@ -105,12 +105,12 @@ class HomeTest < Minitest::Test
 
   def test_interests_and_education
     en = page("index.html")
-    assert_equal ["Efficient LLM", "Trustworthy AI", "Prompt Engineering"],
-                 en.css(".interest h3").map { |h| h.text.strip }
+    assert_equal ["LLM Architecture", "Reliability", "Prompt Engineering"],
+                 en.css(".pillar h3").map { |h| h.text.strip }
     assert_equal 3, en.css(".edu").size
     assert_includes en.at("#education").text, "Hanyang University"
     ko = page("ko/index.html")
-    assert_equal 3, ko.css(".interest").size
+    assert_equal 3, ko.css(".pillar").size
     assert_equal 3, ko.css(".edu").size
     assert_includes ko.at("#education").text, "한양대학교"
   end
@@ -234,6 +234,41 @@ class ReviewFixTest < Minitest::Test
       ["(Introduction)", "(Method)", "(Training Phase)", "(Experimental Setup)"].each do |cite|
         assert_includes text, cite, "#{path}: #{cite}"
       end
+    end
+  end
+end
+
+# Research interests are three pillars that together aim at trustworthy AI.
+class ResearchStructureTest < Minitest::Test
+  PILLARS = ["LLM Architecture", "Reliability", "Prompt Engineering"].freeze
+
+  def test_each_pillar_has_an_illustration
+    HOMES.each_key do |path|
+      cards = page(path).css("#research .pillar")
+      assert_equal 3, cards.size, path
+      cards.each do |card|
+        svg = card.at("svg[role=img]")
+        refute_nil svg, "#{path}: pillar illustration"
+        refute_empty svg.at("title").text.strip, "#{path}: illustration title"
+      end
+    end
+  end
+
+  def test_pillars_converge_on_trustworthy_ai
+    HOMES.each_key do |path|
+      fig = page(path).at("#research svg.convergence")
+      refute_nil fig, "#{path}: convergence diagram"
+      assert_includes fig.text, "Trustworthy AI", path
+      PILLARS.each { |name| assert_includes fig.text, name, path }
+    end
+  end
+
+  def test_research_terms
+    HOMES.each_key do |path|
+      text = page(path).at("#research").text
+      refute_includes text, "Architecture pruning", path
+      assert_includes text, "Structured pruning", path
+      assert_includes text, "Linear & hybrid attention", path
     end
   end
 end

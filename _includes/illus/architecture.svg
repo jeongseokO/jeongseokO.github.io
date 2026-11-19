@@ -1,0 +1,68 @@
+<svg class="il" viewBox="0 0 320 180" role="img" aria-labelledby="il-architecture-{{ page.lang }}">
+<title id="il-architecture-{{ page.lang }}">{{ include.title }}</title>
+<rect class="il-block" x="24" y="18" width="118" height="17" rx="5"/>
+<rect class="il-block-in" x="31" y="23" width="40" height="7" rx="3.5"/><rect class="il-block-in" x="76" y="23" width="58" height="7" rx="3.5"/>
+<rect class="il-block" x="24" y="41" width="118" height="17" rx="5"/>
+<rect class="il-block-in" x="31" y="46" width="40" height="7" rx="3.5"/><rect class="il-block-in" x="76" y="46" width="58" height="7" rx="3.5"/>
+<rect class="il-pruned" x="24" y="64" width="118" height="17" rx="5"/>
+<path class="il-x" d="M128 69l7 7M135 69l-7 7"/>
+<rect class="il-block" x="24" y="87" width="118" height="17" rx="5"/>
+<rect class="il-block-in" x="31" y="92" width="40" height="7" rx="3.5"/><rect class="il-block-in" x="76" y="92" width="58" height="7" rx="3.5"/>
+<rect class="il-pruned" x="24" y="110" width="118" height="17" rx="5"/>
+<path class="il-x" d="M128 115l7 7M135 115l-7 7"/>
+<rect class="il-block" x="24" y="133" width="118" height="17" rx="5"/>
+<rect class="il-block-in" x="31" y="138" width="40" height="7" rx="3.5"/><rect class="il-block-in" x="76" y="138" width="58" height="7" rx="3.5"/>
+<text class="il-cap" x="83" y="170" text-anchor="middle">Structured pruning</text>
+<rect class="il-cell-on" x="176" y="16" width="10" height="10" rx="2"/>
+<rect class="il-cell-off" x="188" y="16" width="10" height="10" rx="2"/>
+<rect class="il-cell-off" x="200" y="16" width="10" height="10" rx="2"/>
+<rect class="il-cell-off" x="212" y="16" width="10" height="10" rx="2"/>
+<rect class="il-cell-off" x="224" y="16" width="10" height="10" rx="2"/>
+<rect class="il-cell-off" x="236" y="16" width="10" height="10" rx="2"/>
+<rect class="il-cell-on" x="176" y="28" width="10" height="10" rx="2"/>
+<rect class="il-cell-on" x="188" y="28" width="10" height="10" rx="2"/>
+<rect class="il-cell-off" x="200" y="28" width="10" height="10" rx="2"/>
+<rect class="il-cell-off" x="212" y="28" width="10" height="10" rx="2"/>
+<rect class="il-cell-off" x="224" y="28" width="10" height="10" rx="2"/>
+<rect class="il-cell-off" x="236" y="28" width="10" height="10" rx="2"/>
+<rect class="il-cell-on" x="176" y="40" width="10" height="10" rx="2"/>
+<rect class="il-cell-on" x="188" y="40" width="10" height="10" rx="2"/>
+<rect class="il-cell-on" x="200" y="40" width="10" height="10" rx="2"/>
+<rect class="il-cell-off" x="212" y="40" width="10" height="10" rx="2"/>
+<rect class="il-cell-off" x="224" y="40" width="10" height="10" rx="2"/>
+<rect class="il-cell-off" x="236" y="40" width="10" height="10" rx="2"/>
+<rect class="il-cell-on" x="176" y="52" width="10" height="10" rx="2"/>
+<rect class="il-cell-on" x="188" y="52" width="10" height="10" rx="2"/>
+<rect class="il-cell-on" x="200" y="52" width="10" height="10" rx="2"/>
+<rect class="il-cell-on" x="212" y="52" width="10" height="10" rx="2"/>
+<rect class="il-cell-off" x="224" y="52" width="10" height="10" rx="2"/>
+<rect class="il-cell-off" x="236" y="52" width="10" height="10" rx="2"/>
+<rect class="il-cell-on" x="176" y="64" width="10" height="10" rx="2"/>
+<rect class="il-cell-on" x="188" y="64" width="10" height="10" rx="2"/>
+<rect class="il-cell-on" x="200" y="64" width="10" height="10" rx="2"/>
+<rect class="il-cell-on" x="212" y="64" width="10" height="10" rx="2"/>
+<rect class="il-cell-on" x="224" y="64" width="10" height="10" rx="2"/>
+<rect class="il-cell-off" x="236" y="64" width="10" height="10" rx="2"/>
+<rect class="il-cell-on" x="176" y="76" width="10" height="10" rx="2"/>
+<rect class="il-cell-on" x="188" y="76" width="10" height="10" rx="2"/>
+<rect class="il-cell-on" x="200" y="76" width="10" height="10" rx="2"/>
+<rect class="il-cell-on" x="212" y="76" width="10" height="10" rx="2"/>
+<rect class="il-cell-on" x="224" y="76" width="10" height="10" rx="2"/>
+<rect class="il-cell-on" x="236" y="76" width="10" height="10" rx="2"/>
+<text class="il-lab" x="256" y="40">Softmax</text><text class="il-cap" x="256" y="56">O(N²)</text>
+<rect class="il-cell-on" x="176" y="104" width="10" height="10" rx="2"/>
+<path class="il-link" d="M181 114L211 136"/>
+<rect class="il-cell-on" x="188" y="104" width="10" height="10" rx="2"/>
+<path class="il-link" d="M193 114L211 136"/>
+<rect class="il-cell-on" x="200" y="104" width="10" height="10" rx="2"/>
+<path class="il-link" d="M205 114L211 136"/>
+<rect class="il-cell-on" x="212" y="104" width="10" height="10" rx="2"/>
+<path class="il-link" d="M217 114L211 136"/>
+<rect class="il-cell-on" x="224" y="104" width="10" height="10" rx="2"/>
+<path class="il-link" d="M229 114L211 136"/>
+<rect class="il-cell-on" x="236" y="104" width="10" height="10" rx="2"/>
+<path class="il-link" d="M241 114L211 136"/>
+<rect class="il-state" x="176" y="136" width="70" height="14" rx="7"/>
+<text class="il-lab" x="256" y="124">Linear</text><text class="il-cap" x="256" y="140">O(N)</text>
+<text class="il-cap" x="246" y="170" text-anchor="middle">Linear attention</text>
+</svg>
