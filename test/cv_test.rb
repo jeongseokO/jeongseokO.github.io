@@ -26,11 +26,11 @@ class CvTest < Minitest::Test
     ["Jungsuk Oh", "Ph.D. in Data Science", "Sep 2026", "AI Researcher", "R&DB Foundation",
      "Head Researcher", "Howard Lee", "Latent Self-Consistency", "AAAI", "10.1609/aaai.v40i38.40536",
      "2605.06105", "Shallow Prefill, Deep Decoding", "ICLR 2026", "ICML 2026", "AAAI 2026", "2027",
-     "vLLM", "TRL", "Slurm", "Teaching Assistant"].each { |s| assert_includes text, s }
+     "vLLM", "TRL", "Slurm", "Teaching Assistant", "Samsung AI Expert Program"].each { |s| assert_includes text, s }
   end
 
   def test_removed_content
-    ["010-", "GPA", "eGlobal", "LatentCOMP", "Research Loop", "Coursework"].each { |s| refute_includes text, s }
+    ["010-", "GPA", "eGlobal", "LatentCOMP", "Research Loop", "Coursework", "LLM Training Program"].each { |s| refute_includes text, s }
   end
 
   def test_english_only
