@@ -44,6 +44,18 @@ class CvTest < Minitest::Test
      "https://jeongseoko.github.io/research/speed/"].each { |u| assert_includes urls, u }
   end
 
+  # Inter's contextual alternates swap punctuation next to capitals for glyphs that
+  # copy/paste and applicant tracking systems cannot map back to text.
+  def test_punctuation_survives_text_extraction
+    ["(SKI-ML Lab)", "(MFDS)", "PI: Prof. Howard Lee", "Co-PI: Prof. Jay-Yoon Lee", "[P1]"].each do |s|
+      assert_includes text, s
+    end
+  end
+
+  def test_mfds_described_once
+    refute_includes text, "side of the MFDS translation project"
+  end
+
   def test_metadata
     assert_match(/^Title:.*Jungsuk Oh.*CV/, info)
     assert_match(/^Author:\s+Jungsuk Oh$/, info)

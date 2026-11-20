@@ -16,8 +16,9 @@
   BoldFont       = *-SemiBold,
   BoldItalicFont = *-SemiBoldItalic,
   Numbers        = Lining,
+  RawFeature     = -calt,  % keep plain punctuation so copied text and ATS parsing stay intact
 ]
-\newfontfamily\displayfont{InterDisplay}[Extension = .otf, UprightFont = *-SemiBold]
+\newfontfamily\displayfont{InterDisplay}[Extension = .otf, UprightFont = *-SemiBold, RawFeature = -calt]
 
 \definecolor{accent}{HTML}{1D4ED8}
 \definecolor{ink}{HTML}{0F172A}
@@ -103,7 +104,6 @@ Efficient and trustworthy large language models: LLM architecture and long-conte
 \section{Research Experience}
 \textbf{AI Researcher}, Seoul National University R\&DB Foundation (SKI-ML Lab)\when{Sep 2025 -- Aug 2026}
 \begin{itemize}
-  \item Led the SKI-ML Lab side of the MFDS translation project as head researcher (below).
   \item Researched efficient long-context inference for LLMs, which led to the SPEED preprint [P1].
 \end{itemize}
 \vspace{4pt}
