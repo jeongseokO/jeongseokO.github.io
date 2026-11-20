@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Compile cv/cv.tex into cv/JungsukOh_CV.pdf with XeLaTeX (needs the Inter font).
+set -euo pipefail
+cd "$(dirname "$0")/../cv"
+for pass in 1 2; do
+  xelatex -interaction=nonstopmode -halt-on-error -jobname=JungsukOh_CV cv.tex > build.log
+done
+rm -f JungsukOh_CV.aux JungsukOh_CV.log JungsukOh_CV.out build.log
+echo "built cv/JungsukOh_CV.pdf"

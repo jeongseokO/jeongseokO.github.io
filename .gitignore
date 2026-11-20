@@ -5,3 +5,6 @@ _site/
 .bundle/
 vendor/
 .superpowers/
+cv/*.aux
+cv/*.log
+cv/*.out

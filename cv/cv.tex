@@ -1,0 +1,137 @@
+% CV of Jungsuk Oh. Build with script/build-cv (XeLaTeX + Inter).
+\documentclass[10pt]{article}
+
+\usepackage[letterpaper, top=0.55in, bottom=0.5in, left=0.65in, right=0.65in]{geometry}
+\usepackage{fontspec}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage[hidelinks]{hyperref}
+
+\setmainfont{Inter}[
+  Extension      = .otf,
+  UprightFont    = *-Regular,
+  ItalicFont     = *-Italic,
+  BoldFont       = *-SemiBold,
+  BoldItalicFont = *-SemiBoldItalic,
+  Numbers        = Lining,
+]
+\newfontfamily\displayfont{InterDisplay}[Extension = .otf, UprightFont = *-SemiBold]
+
+\definecolor{accent}{HTML}{1D4ED8}
+\definecolor{ink}{HTML}{0F172A}
+\definecolor{muted}{HTML}{475569}
+\definecolor{rule}{HTML}{CBD5E1}
+
+\hypersetup{
+  pdftitle   = {Jungsuk Oh - CV},
+  pdfauthor  = {Jungsuk Oh},
+  pdfsubject = {Curriculum Vitae},
+}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\raggedright
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\fontsize{9.6}{12.4}\selectfont
+\color{ink}
+
+% Section heading: small accent caps with a thin rule.
+\titleformat{\section}
+  {\color{accent}\footnotesize\bfseries\addfontfeature{LetterSpace=10}}
+  {}{0pt}{\MakeUppercase}[\vspace{1pt}{\color{rule}\titlerule}]
+\titlespacing*{\section}{0pt}{9pt}{5pt}
+
+\setlist[itemize]{leftmargin=1.1em, itemsep=0.5pt, topsep=1.5pt, parsep=0pt, label={\color{muted}\textbullet}}
+\newlist{pubs}{enumerate}{1}
+\setlist[pubs]{leftmargin=2.5em, labelsep=0.6em, align=left, itemsep=5pt, topsep=2pt, parsep=0pt, font=\color{muted}}
+
+\newcommand{\link}[2]{\href{#1}{\color{accent}#2}}
+\newcommand{\when}[1]{\hfill{\color{muted}#1}}
+\newcommand{\sub}[1]{{\color{muted}#1}}
+
+\begin{document}
+\fontsize{9.6}{12.4}\selectfont
+
+% ---------------------------------------------------------------- header
+{\displayfont\fontsize{23}{27}\selectfont Jungsuk Oh}\par
+\vspace{2pt}
+\sub{Ph.D. Student, Graduate School of Data Science, Seoul National University}\par
+\vspace{2pt}
+\link{mailto:luke0112@snu.ac.kr}{luke0112@snu.ac.kr}\enspace\textperiodcentered\enspace
+\link{https://jeongseoko.github.io/}{jeongseoko.github.io}\enspace\textperiodcentered\enspace
+\link{https://scholar.google.com/citations?user=WV5svAIAAAAJ}{Google Scholar}\enspace\textperiodcentered\enspace
+\link{https://github.com/jeongseokO}{GitHub}\enspace\textperiodcentered\enspace
+\link{https://www.linkedin.com/in/\%EC\%A0\%95\%EC\%84\%9D-\%EC\%98\%A4-438528255}{LinkedIn}\par
+
+% ---------------------------------------------------------------- interests
+\section{Research Interests}
+Efficient and trustworthy large language models: LLM architecture and long-context inference (KV cache, linear and hybrid attention, structured pruning), reliability (self-consistency, hallucination mitigation), and prompting and inference-time strategies.
+
+% ---------------------------------------------------------------- education
+\section{Education}
+\textbf{Ph.D. in Data Science}, Seoul National University \sub{\textperiodcentered\ Advisor: Prof. Jay-Yoon Lee}\when{Sep 2026 -- Present}\par
+\textbf{M.S. in Data Science}, Seoul National University \sub{\textperiodcentered\ Advisor: Prof. Jay-Yoon Lee}\when{Mar 2023 -- Aug 2025}\par
+\textbf{B.S. in Industrial Engineering}, Hanyang University\when{Mar 2016 -- Aug 2022}\par
+
+% ---------------------------------------------------------------- publications
+\section{Publications}
+\textbf{Conference Papers}\hfill\sub{\small * corresponding author}
+\begin{pubs}
+  \item[{[C1]}] \textbf{Latent Self-Consistency for Reliable Majority-Set Selection in Short- and Long-Answer Reasoning}\\
+    \textbf{Jungsuk Oh}, Jay-Yoon Lee*\hfill
+    \link{https://doi.org/10.1609/aaai.v40i38.40536}{[Paper]}
+    \link{https://arxiv.org/abs/2508.18395}{[arXiv]}
+    \link{https://github.com/jeongseokO/LatentSC}{[Code]}
+    \link{https://jeongseoko.github.io/research/lsc/}{[Project]}\\
+    \textit{AAAI Conference on Artificial Intelligence (AAAI-26)}, 2026. DOI: 10.1609/aaai.v40i38.40536\\
+    \sub{Picks the answer most sampled responses agree on by comparing learned summary-token embeddings, so self-consistency also works for long, free-form answers, at most 0.9\% extra inference time.}
+\end{pubs}
+\textbf{Preprints}
+\begin{pubs}
+  \item[{[P1]}] \textbf{Shallow Prefill, Deep Decoding: Efficient Long-Context Inference via Layer-Asymmetric KV Visibility}\\
+    \textbf{Jungsuk Oh}, Hyeseo Jeon, Hyunjune Ji, Kyongmin Kong, Jay-Yoon Lee*\hfill
+    \link{https://arxiv.org/abs/2605.06105}{[arXiv]}
+    \link{https://jeongseoko.github.io/research/speed/}{[Project]}\\
+    \textit{arXiv:2605.06105}, 2026\\
+    \sub{Keeps prompt KV states only in the lower layers while decoding at full depth. On Llama-3.1-8B: 51.2 vs.\ 51.4 average score against the full model, with 33\% faster first token, 22\% faster decoding, and 25\% less KV memory at 128K context.}
+\end{pubs}
+
+% ---------------------------------------------------------------- experience
+\section{Research Experience}
+\textbf{AI Researcher}, Seoul National University R\&DB Foundation (SKI-ML Lab)\when{Sep 2025 -- Aug 2026}
+\begin{itemize}
+  \item Led the SKI-ML Lab side of the MFDS translation project as head researcher (below).
+  \item Researched efficient long-context inference for LLMs, which led to the SPEED preprint [P1].
+\end{itemize}
+\vspace{4pt}
+\textbf{Head Researcher}, MFDS Korean--English Translation Project\when{Feb 2025 -- Nov 2026}\\
+\sub{Translation model for drug regulatory documents \textperiodcentered\ SKI-ML Lab $\times$ Ministry of Food and Drug Safety (MFDS)}\\
+\sub{PI: Prof. Howard Lee \textperiodcentered\ Co-PI: Prof. Jay-Yoon Lee}
+\begin{itemize}
+  \item Led model selection and training: compared more than eight candidate models and fine-tuned VaivGem-9B with LoRA SFT and GRPO.
+  \item Compared four prompt templates for inference and adopted retrieval few-shot and segment-level prompting.
+  \item Built a post-editing loop that checks each translation (length, placeholders, copying, quality estimation) and repairs or flags failures.
+  \item Delivered the final model, now hosted on a server inside MFDS.
+\end{itemize}
+
+% ---------------------------------------------------------------- teaching
+\section{Teaching}
+\textbf{Teaching Assistant}, Samsung LLM Training Program\when{Jul 2024 -- Aug 2024}
+\begin{itemize}
+  \item Taught project-based sessions on LLM inference optimization for latency and memory, and guided participants through end-to-end RAG projects (data preprocessing, retriever training, generation).
+\end{itemize}
+
+% ---------------------------------------------------------------- service and skills
+\section{Service}
+\textbf{Reviewer}: ICLR 2026, ICML 2026, AAAI 2026, AAAI 2027
+
+\section{Skills}
+\begin{tabularx}{\linewidth}{@{}l X@{}}
+  \textbf{ML \& systems} & PyTorch, Hugging Face Transformers, vLLM, PEFT/LoRA, TRL, Slurm\\
+  \textbf{Languages} & Python, C/C++, JavaScript, \LaTeX\\
+\end{tabularx}
+
+\end{document}
