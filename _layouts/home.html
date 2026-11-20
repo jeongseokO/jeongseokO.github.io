@@ -18,7 +18,7 @@ layout: default
       <ul class="hero__links">
         <li><a class="js-copy-email" href="mailto:{{ p.email }}" data-email="{{ p.email }}" data-copied="{{ t.email_copied }}" title="{{ t.email_copy_title }}: {{ p.email }}">{{ t.email }}</a></li>
         {%- if p.cv %}
-        <li><a href="{{ p.cv | relative_url }}">CV</a></li>
+        <li><a href="{{ p.cv | relative_url }}" target="_blank" rel="noopener" aria-label="{{ t.cv_aria }}">CV</a></li>
         {%- endif %}
         {%- for l in p.links %}
         <li><a href="{{ l.url }}">{{ l.label }}</a></li>
@@ -101,6 +101,21 @@ layout: default
   </div>
 </section>
 
+<section class="section" id="experience" aria-labelledby="h-experience">
+  <div class="container">
+    <h2 class="section__title" id="h-experience">{{ t.sec_experience }}</h2>
+    <ol class="timeline">
+      {%- for x in p.experience %}
+      <li class="xp">
+        <p class="xp__head"><span class="xp__title">{{ x.title[page.lang] }}</span>, <span class="xp__org">{{ x.org[page.lang] }}</span></p>
+        <p class="xp__period">{{ x.period[page.lang] }}</p>
+        <p class="xp__summary">{{ x.summary[page.lang] }}</p>
+      </li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>
+
 <section class="section" id="education" aria-labelledby="h-education">
   <div class="container">
     <h2 class="section__title" id="h-education">{{ t.sec_education }}</h2>
@@ -109,9 +124,23 @@ layout: default
       <li class="edu">
         <p class="edu__degree">{{ e.degree[page.lang] }}</p>
         <p class="edu__school">{{ e.school[page.lang] }}</p>
-        <p class="edu__status">{{ e.status[page.lang] }}</p>
+        <p class="edu__period">{{ e.period[page.lang] }}</p>
+        {%- if e.advisor %}
+        <p class="edu__advisor">{{ e.advisor[page.lang] }}</p>
+        {%- endif %}
       </li>
       {%- endfor %}
     </ol>
+  </div>
+</section>
+
+<section class="section" id="service" aria-labelledby="h-service">
+  <div class="container">
+    <h2 class="section__title" id="h-service">{{ t.sec_service }}</h2>
+    <ul class="service">
+      {%- for sv in p.service %}
+      <li><strong>{{ sv.role[page.lang] }}</strong>: {{ sv.venues }}</li>
+      {%- endfor %}
+    </ul>
   </div>
 </section>

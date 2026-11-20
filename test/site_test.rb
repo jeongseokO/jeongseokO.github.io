@@ -536,3 +536,59 @@ class CvLinkTest < Minitest::Test
     refute File.exist?(File.join(SITE, "cv/cv.tex")), "LaTeX source is not published"
   end
 end
+
+# Homepage reflects the CV: dated education, experience, service; CV opens in a new tab.
+class CvOnHomepageTest < Minitest::Test
+  def test_cv_links_open_in_new_tab
+    HOMES.each_key do |path|
+      links = page(path).css('a[href="/cv/JungsukOh_CV.pdf"]')
+      assert_equal 2, links.size, path
+      links.each do |a|
+        assert_equal "_blank", a["target"], path
+        assert_includes a["rel"].to_s, "noopener", path
+        refute_empty a["aria-label"].to_s, path
+      end
+    end
+  end
+
+  def test_education_has_periods_and_advisors
+    { "index.html" => ["Sep 2026 – Present", "Mar 2023 – Aug 2025", "Mar 2016 – Aug 2022", "Advisor: Prof. Jay-Yoon Lee"],
+      "ko/index.html" => ["2026.09 – 현재", "2023.03 – 2025.08", "2016.03 – 2022.08", "지도교수 이재윤"] }.each do |path, (phd, ms, bs, advisor)|
+      edu = page(path).css(".edu")
+      assert_equal [phd, ms, bs], edu.map { |e| e.at(".edu__period").text.strip }, path
+      assert_equal 2, edu.css(".edu__advisor").count { |a| a.text.include?(advisor) }, path
+      assert_empty page(path).css(".edu__status"), "#{path}: periods replace the status pills"
+    end
+  end
+
+  def test_experience_section
+    { "index.html" => [["AI Researcher", "R&DB Foundation", "Sep 2025 – Aug 2026"],
+                       ["Teaching Assistant", "Samsung AI Expert Program", "Jul 2024 – Aug 2024"]],
+      "ko/index.html" => [["AI 연구원", "서울대학교 산학협력단", "2025.09 – 2026.08"],
+                          ["조교", "AI Expert", "2024.07 – 2024.08"]] }.each do |path, rows|
+      doc = page(path)
+      assert_equal "Experience", doc.at("#h-experience").text.strip, path
+      items = doc.css("#experience .xp")
+      assert_equal 2, items.size, path
+      rows.zip(items).each do |(title, org, period), item|
+        assert_equal title, item.at(".xp__title").text.strip, path
+        assert_includes item.at(".xp__org").text, org, path
+        assert_equal period, item.at(".xp__period").text.strip, path
+      end
+    end
+  end
+
+  def test_service_section
+    HOMES.each_key do |path|
+      doc = page(path)
+      assert_equal "Service", doc.at("#h-service").text.strip, path
+      text = doc.at("#service").text
+      ["ICLR 2026", "ICML 2026", "AAAI 2026", "AAAI 2027"].each { |v| assert_includes text, v, path }
+    end
+  end
+
+  def test_section_order
+    ids = page("index.html").css("main > section").map { |s| s["id"] }.compact
+    assert_equal %w[about research publications projects experience education service], ids
+  end
+end

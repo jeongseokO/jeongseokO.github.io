@@ -3,7 +3,7 @@
     <ul class="footer-links">
       <li><a class="js-copy-email" href="mailto:{{ site.data.profile.email }}" data-email="{{ site.data.profile.email }}" data-copied="{{ t.email_copied }}" title="{{ t.email_copy_title }}: {{ site.data.profile.email }}">{{ site.data.profile.email }}</a></li>
       {%- if site.data.profile.cv %}
-      <li><a href="{{ site.data.profile.cv | relative_url }}">CV</a></li>
+      <li><a href="{{ site.data.profile.cv | relative_url }}" target="_blank" rel="noopener" aria-label="{{ t.cv_aria }}">CV</a></li>
       {%- endif %}
       {%- for l in site.data.profile.links %}
       <li><a href="{{ l.url }}">{{ l.label }}</a></li>

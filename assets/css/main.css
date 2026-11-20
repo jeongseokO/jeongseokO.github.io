@@ -397,15 +397,32 @@ img, svg { max-width: 100%; height: auto; }
 }
 .edu:first-child { padding-top: 0; }
 @media (min-width: 760px) {
-  .edu { grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr) auto; align-items: baseline; }
+  .edu { grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr) 11rem; align-items: baseline; }
 }
 .edu__degree { font-weight: 700; }
 .edu__school { color: var(--ink-2); font-size: .95rem; }
-.edu p.edu__status {
-  justify-self: start; padding: .1rem .55rem; border-radius: 6px;
-  background: var(--surface-2); color: var(--ink-2); font-size: .76rem; font-weight: 600;
+.edu__period, .xp__period { color: var(--ink-3); font-size: .88rem; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.edu__advisor { color: var(--ink-3); font-size: .88rem; }
+@media (min-width: 760px) {
+  .edu__period { grid-column: 3; grid-row: 1; justify-self: end; }
+  .edu__advisor { grid-column: 2; }
 }
-.edu:first-child .edu__status { background: var(--accent-soft); color: var(--accent); }
+
+.xp { display: grid; gap: .15rem 1.5rem; padding: .9rem 0; border-bottom: 1px solid var(--rule); }
+.xp:first-child { padding-top: 0; }
+.xp__head { font-size: .97rem; }
+.xp__title { font-weight: 700; }
+.xp__org { color: var(--ink-2); }
+.xp__summary { color: var(--ink-2); font-size: .92rem; max-width: 820px; }
+@media (min-width: 760px) {
+  .xp { grid-template-columns: minmax(0, 1fr) 11rem; }
+  .xp__period { grid-column: 2; grid-row: 1; justify-self: end; }
+  .xp__summary { grid-column: 1 / -1; }
+}
+
+.service { list-style: none; margin: 0; padding: 0; }
+.service li { color: var(--ink-2); }
+.service strong { color: var(--ink); font-weight: 700; }
 
 /* ---------- Research page ---------- */
 

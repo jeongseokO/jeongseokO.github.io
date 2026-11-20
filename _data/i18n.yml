@@ -14,8 +14,11 @@ en:
   sec_education: Education
   sec_publications: Publications
   sec_projects: Projects
+  sec_experience: Experience
+  sec_service: Service
   advised_by: Advised by
   email: Email
+  cv_aria: CV (PDF, opens in a new tab)
   email_copied: Copied!
   email_copy_title: "Click to copy"
   email_copied_status: Email address copied
@@ -62,8 +65,11 @@ ko:
   sec_education: Education
   sec_publications: Publications
   sec_projects: Projects
+  sec_experience: Experience
+  sec_service: Service
   advised_by: 지도교수
   email: 이메일
+  cv_aria: CV (PDF, 새 탭에서 열림)
   email_copied: 복사됨
   email_copy_title: "클릭하면 복사됩니다"
   email_copied_status: 이메일 주소를 복사했습니다

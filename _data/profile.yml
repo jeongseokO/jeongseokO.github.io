@@ -40,27 +40,66 @@ education:
     school:
       en: Graduate School of Data Science, Seoul National University
       ko: 서울대학교 데이터사이언스대학원
-    status:
-      en: In progress
-      ko: 재학 중
+    advisor:
+      en: "Advisor: Prof. Jay-Yoon Lee"
+      ko: 지도교수 이재윤
+    period:
+      en: Sep 2026 – Present
+      ko: 2026.09 – 현재
   - degree:
       en: M.S. in Data Science
       ko: 데이터사이언스 석사
     school:
       en: Graduate School of Data Science, Seoul National University
       ko: 서울대학교 데이터사이언스대학원
-    status:
-      en: Graduated
-      ko: 졸업
+    advisor:
+      en: "Advisor: Prof. Jay-Yoon Lee"
+      ko: 지도교수 이재윤
+    period:
+      en: Mar 2023 – Aug 2025
+      ko: 2023.03 – 2025.08
   - degree:
       en: B.S. in Industrial Engineering
       ko: 산업공학 학사
     school:
       en: Hanyang University
       ko: 한양대학교
-    status:
-      en: Graduated
-      ko: 졸업
+    period:
+      en: Mar 2016 – Aug 2022
+      ko: 2016.03 – 2022.08
+
+# Same facts as the CV (cv/cv.tex); keep the two in step.
+experience:
+  - title:
+      en: AI Researcher
+      ko: AI 연구원
+    org:
+      en: Seoul National University R&DB Foundation (SKI-ML Lab)
+      ko: 서울대학교 산학협력단 (SKI-ML 연구실)
+    period:
+      en: Sep 2025 – Aug 2026
+      ko: 2025.09 – 2026.08
+    summary:
+      en: Researched efficient long-context inference for LLMs, which led to the SPEED preprint.
+      ko: LLM의 효율적인 긴 문맥 추론을 연구했고, 이 연구가 SPEED 프리프린트로 이어졌습니다.
+  - title:
+      en: Teaching Assistant
+      ko: 조교
+    org:
+      en: Project Course, Samsung AI Expert Program
+      ko: 삼성 AI Expert 과정 프로젝트 수업
+    period:
+      en: Jul 2024 – Aug 2024
+      ko: 2024.07 – 2024.08
+    summary:
+      en: Taught project-based sessions on LLM inference optimization for latency and memory, and guided participants through end-to-end RAG projects.
+      ko: 지연 시간과 메모리를 줄이는 LLM 추론 최적화를 프로젝트 중심으로 가르치고, 데이터 전처리부터 생성까지 이어지는 RAG 프로젝트를 지도했습니다.
+
+service:
+  - role:
+      en: Reviewer
+      ko: 리뷰어
+    venues: ICLR 2026, ICML 2026, AAAI 2026, AAAI 2027
 
 research_goal:
   en: "The goal behind most of my work is a language model people can rely on. I don't think one technique gets us there. The model has to be cheap enough to check, its answers have to survive the check, and we need a way to tell it what we actually want. Each of the three areas below takes on one of these."
