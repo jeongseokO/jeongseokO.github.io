@@ -522,3 +522,17 @@ class LscDoiTest < Minitest::Test
     end
   end
 end
+
+class CvLinkTest < Minitest::Test
+  CV = "/cv/JungsukOh_CV.pdf"
+
+  def test_cv_linked_from_home_and_footer
+    HOMES.each_key do |path|
+      doc = page(path)
+      refute_nil doc.at(%(.hero__links a[href="#{CV}"])), "#{path}: hero CV link"
+      refute_nil doc.at(%(.site-footer a[href="#{CV}"])), "#{path}: footer CV link"
+    end
+    assert File.exist?(File.join(SITE, "cv/JungsukOh_CV.pdf")), "PDF is published"
+    refute File.exist?(File.join(SITE, "cv/cv.tex")), "LaTeX source is not published"
+  end
+end

@@ -17,6 +17,7 @@ Personal research site of Jungsuk Oh (오정석), built with Jekyll and served b
 | SPEED research page | `research/speed.md`, `ko/research/speed.md`, table numbers in `_data/speed_results.yml` |
 | Translation inference page (MFDS) | `research/translation-inference.md`, `ko/research/translation-inference.md` |
 | Page figures | `_includes/figures/*.svg` |
+| CV | `cv/cv.tex`, then run `script/build-cv` (needs XeLaTeX and the Inter font) to update `cv/JungsukOh_CV.pdf` |
 | Design | `assets/css/main.css` |
 
 To show a profile photo, put it in `assets/img/` and set `photo:` in `_data/profile.yml`.

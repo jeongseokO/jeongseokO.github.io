@@ -28,3 +28,7 @@ exclude:
   - test
   - script
   - README.md
+  - cv/cv.tex
+  - cv/*.log
+  - cv/*.aux
+  - cv/*.out

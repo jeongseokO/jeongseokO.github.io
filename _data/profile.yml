@@ -21,6 +21,8 @@ lab:
   name: SKI-ML Lab
   url: https://www.skiml.snu.ac.kr/
 email: luke0112@snu.ac.kr
+# Built from cv/cv.tex with script/build-cv.
+cv: /cv/JungsukOh_CV.pdf
 links:
   - label: Google Scholar
     url: https://scholar.google.com/citations?user=WV5svAIAAAAJ
